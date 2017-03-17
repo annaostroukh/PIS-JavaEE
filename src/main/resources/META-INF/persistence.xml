@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"  
+	xmlns="http://java.sun.com/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+  <persistence-unit name="crm-unit" transaction-type="RESOURCE_LOCAL">
+  	<!--  <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider> -->
+  	<jta-data-source>java:comp/env/jdbc/crmsystem</jta-data-source>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+    	<!--  <property name="javax.persistence.schema-generation.database.action" value="create"/>
+        <property name="eclipselink.ddl-generation" value="create-tables"/> -->
+      	<!--  <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/> -->
+		<!--  <property name="openjpa.jdbc.SchemaFactory" value="native(foreignKeys=true)" />
+		<property name="openjpa.jdbc.MappingDefaults" value="ForeignKeyDeleteAction=restrict, JoinForeignKeyDeleteAction=restrict"/> -->
+		<!-- <property name="openjpa.jdbc.DBDictionary" value="mysql" /> -->
+      	<property name="eclipseLink.ddl-generation" value="create-or-extend-tables"/>
+        <property name="eclipseLink.ddl-generation.output-mode" value="database"/>
+    </properties>
+  </persistence-unit>
+</persistence>
