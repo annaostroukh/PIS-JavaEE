@@ -12,7 +12,27 @@
     
 	<context:annotation-config/>
     
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    	<property name="entityManagerFactory" ref="em"/>
+	</bean>
+	
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    	<property name="jndiName" value="java:comp/env/jdbc/crmsystem"/>
+	</bean>
+	
+	<!-- Configure a JPA vendor adapter -->
+	<bean id="openJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter">
+		<property name="showSql" value="true" />
+       	<property name="generateDdl" value="true" />
+	</bean>
+	
+	<bean id="em" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="jpaVendorAdapter" ref="openJpaVendorAdapter" />
+	    <property name="persistenceUnitName" value="crm-unit"/>
+	</bean>
+	
+	<!-- Another working configuration -->
+	<!--  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
     	<property name="entityManagerFactory" ref="em"/>
 	</bean>
 	
@@ -22,6 +42,5 @@
 	
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
     	<property name="jndiName" value="java:comp/env/jdbc/crmsystem"/>
-	</bean>
-
+	</bean> -->
 </beans>

@@ -26,9 +26,9 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
         if (roles.contains("ROLE_ADMIN")) {
             response.sendRedirect("/crm/admin");
         } else if (roles.contains("ROLE_MANAGER")) {
-        	response.sendRedirect("/crm/admin");
+        	response.sendRedirect("/crm/manager");
         } else if (roles.contains("ROLE_SUPERVISOR")) {
-        	response.sendRedirect("/crm/admin");
+        	response.sendRedirect("/crm/supervisor");
         }
 		
 	}

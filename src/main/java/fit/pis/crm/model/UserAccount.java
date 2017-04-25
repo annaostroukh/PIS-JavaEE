@@ -1,10 +1,12 @@
 package fit.pis.crm.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -13,6 +15,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="useraccount", uniqueConstraints=@UniqueConstraint(columnNames = "email"))
 public class UserAccount implements Serializable{
@@ -20,7 +24,7 @@ public class UserAccount implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
 	private Long id;
 	
@@ -39,6 +43,10 @@ public class UserAccount implements Serializable{
 	@NotNull(message = "Email address cannot be empty")
 	@Column(name = "email")
 	private String email;
+	
+	@NotNull(message = "Start date cannot be empty")
+	@DateTimeFormat(pattern="MM/dd/yyyy")
+    private Date date;
 	
 	@NotNull
 	@Size(min = 9, max = 12)
@@ -86,6 +94,12 @@ public class UserAccount implements Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	public String getPhoneNumber() {
 		return phoneNumber;

@@ -13,7 +13,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,10 +20,10 @@ import fit.pis.crm.model.UserAccount;
 
 @Repository
 @Transactional
-@Stateful(name = "UserAccountDAO")
+@Stateful
 public class UserAccountDAOImpl implements UserAccountDAO {
 	
-	@PersistenceContext(name = "crm-unit", type = PersistenceContextType.EXTENDED)
+	@PersistenceContext(unitName = "crm-unit", type = PersistenceContextType.EXTENDED)
 	private EntityManager em;
 
 	public UserAccount findById(Long id) {
@@ -52,8 +51,8 @@ public class UserAccountDAOImpl implements UserAccountDAO {
 		em.persist(userAccount);
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
-			String hashSource = userAccount.getEmail() + userAccount.getPassword() + userAccount.getPhoneNumber()
-					+ userAccount.getUserName() + new java.util.Date();
+			String hashSource = userAccount.getEmail() + userAccount.getUserName() + userAccount.getSurname() + userAccount.getPassword() 
+					 + userAccount.getRole() + userAccount.getPhoneNumber() + userAccount.getDate();
 			md.update(hashSource.getBytes("UTF-8"));
 			em.merge(userAccount);
 		} catch (NoSuchAlgorithmException ex) {

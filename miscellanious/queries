@@ -6,3 +6,15 @@ VALUES ('2','manager@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','123');
 
 INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number)
 VALUES ('3','supervisor@gmail.com','demo','demo','demo',true,'ROLE_SUPERVISOR','123');
+
+CREATE TABLE useraccount (
+	user_id INTEGER PRIMARY KEY,
+	email VARCHAR (50)  NOT NULL,
+	username VARCHAR (50) NOT NULL, 
+	surname	VARCHAR (50)  NOT NULL, 
+	password VARCHAR (50)  NOT NULL, 
+	enabled BOOLEAN,
+	role VARCHAR (20)  NOT NULL, 
+	phone_number VARCHAR (20)  NOT NULL, 
+	date DATE NOT NULL
+	);
