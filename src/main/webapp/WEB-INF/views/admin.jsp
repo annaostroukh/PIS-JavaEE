@@ -1,12 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <jsp:include page="templates/admin_header.jsp"></jsp:include>
 
 
 <div class="row">
+		<c:choose>
+			<c:when
+				test="${not empty users}">
+			</c:when>
+		</c:choose>
         <div class="col-md-12">
             <h1>Users</h1>
             <a href="<c:url value = "/admin/users/new" />" /><button class="btn btn-info">Add user</button></a>
@@ -34,154 +39,45 @@
 		            </tr>
 		        </tfoot>
 		        <tbody>
+		        	<c:if test="${empty users}">
+				      <tr>
+				        <td>No users to display</td>
+				        <td></td>
+				        <td></td>
+				        <td></td>
+				        <td></td>
+				        <td></td>
+				      </tr>
+				    </c:if>
+		            <c:if test="${not empty users}">
 		            <tr>
-		                <td>AAATiger</td>
-		                <td>Nixon</td>
-		                <td>Supervisor</td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr>
-		            <tr>
-		                <td>BTiger</td>
-		                <td>Nixon</td>
-		                <td>
-		                	Administrator
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr>
-		            <tr>
-		                <td>Tiger</td>
-		                <td>Nixon</td>
-		                <td>
-		                	Administrator
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr>
-		            <tr>
-		                <td>Tiger</td>
-		                <td>Nixon</td>
-		                <td>
-		                	Administrator
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr><tr>
-		                <td>Tiger</td>
-		                <td>Nixon</td>
-		                <td>
-		                	Administrator
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr><tr>
-		                <td>Tiger</td>
-		                <td>Nixon</td>
-		                <td>
-		                	Administrator
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr><tr>
-		                <td>Tiger</td>
-		                <td>Nixon</td>
-		                <td>
-		                	Administrator
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr><tr>
-		                <td>Tiger</td>
-		                <td>Nixon</td>
-		                <td>
-		                	Administrator
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr><tr>
-		                <td>Tiger</td>
-		                <td>Nixon</td>
-		                <td>
-		                	Administrator
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr><tr>
-		                <td>Tiger</td>
-		                <td>Nixon</td>
-		                <td>
-		                	Administrator
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr>
-		            <tr>
-		                <td>Mikjhiger</td>
-		                <td>Nixoner</td>
-		                <td>
-		                	Owner
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="<c:url value = "/admin-users-edit" />" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr>
-		            <tr>
-		                <td>Tiger</td>
-		                <td>Nixon</td>
-		                <td>
-		                	Administrator
-		                </td>
-		                <td>nixon@elite-motors.com</td>
-		                <td>2011/04/25</td>
-		                <td>
-		                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-		                	<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
-		                </td>
-		            </tr>
+		            	<c:forEach var="user"  items="${users}">
+			                <td>
+			                	<c:out value="${user.username}"/>
+			                </td>
+			                <td>
+			                	<c:out value="${user.surname}"/>
+			                </td>
+			                <td>
+			                	<c:out value="${user.role}"/>
+							</td>
+			                <td>
+			                	<c:out value="${user.email}"/>
+			                </td>
+			                <td>
+			                	<c:out value="${user.date}"/>
+							</td>
+			                <td>
+			                	<a href="<c:url value="/admin/users/edit" />" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
+			                	<c:if test="${not empty user.id}">
+			                		<a href="<c:url value="/admin/delete/${user.id}" />" >
+			                			<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
+			                		</a>
+			                	</c:if>
+			                </td>
+			           </c:forEach>
+		            	</tr>
+		            </c:if>
 		        </tbody>
 		    </table>
         </div>

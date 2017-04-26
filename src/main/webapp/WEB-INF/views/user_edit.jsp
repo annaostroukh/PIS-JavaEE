@@ -34,7 +34,7 @@
                     	<form:input path="phoneNumber" type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone" />
                     <form:errors path="phoneNumber" />
                     <br>
-                    <input name="submit" type="submit" class="btn btn-primary btn-block" />
+                    <button class="btn btn-primary btn-block" type="submit">Save</button>
                    	<!--  <button class="btn btn-primary btn-block" href="<c:url value='/admin' />" type="submit">Save
 						<c:choose>
 							<c:when
@@ -47,8 +47,8 @@
                     <form:label path="email"> Email: </form:label>
                     <form:input path="email" type="email" name="email" id="Email" class="form-control" placeholder="Email" />
                     <form:label path="role"> Position: </form:label>
-                        <form:select path="role" class="form-control">
-                        	<form:options items="${roles}" />
+                        <form:select path="role" class="form-control" name="role">
+                        	<form:options items="${role}" />
                         </form:select>
                 </div>
                 <div class="col-md-4">
@@ -62,7 +62,6 @@
                     <form:errors path="confirmPassword" />
                     <!--  <a class="btn btn-info" data-toggle="modal" data-target="#pass">Change password</a> -->
                 </div>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </form:form><!-- /form -->
         </div>
     </div>

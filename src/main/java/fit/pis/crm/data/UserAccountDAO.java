@@ -12,6 +12,8 @@ public interface UserAccountDAO {
 
     public void register(UserAccount userAccount);
     
+    public void deleteById(Long id);
+    
     public void update(UserAccount userAccount);
 
 }

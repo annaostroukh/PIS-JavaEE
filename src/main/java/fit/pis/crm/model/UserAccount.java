@@ -15,9 +15,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
+@Entity(name = "UserAccount")
 @Table(name="useraccount", uniqueConstraints=@UniqueConstraint(columnNames = "email"))
 public class UserAccount implements Serializable{
 	
@@ -31,17 +33,17 @@ public class UserAccount implements Serializable{
 	@NotNull
     @Size(min = 1, max = 25)
     @Pattern(regexp = "[A-Za-z ]*", message = "must contain only letters and spaces")
-	@Column(name = "username")
+	@Column(name = "username", length = 50)
 	private String userName;
 	
 	@NotNull
     @Size(min = 1, max = 25)
     @Pattern(regexp = "[A-Za-z ]*", message = "must contain only letters and spaces")
-	@Column(name = "surname")
+	@Column(name = "surname", length = 50)
 	private String surname;
 	
 	@NotNull(message = "Email address cannot be empty")
-	@Column(name = "email")
+	@Column(name = "email", length = 50)
 	private String email;
 	
 	@NotNull(message = "Start date cannot be empty")
@@ -50,13 +52,13 @@ public class UserAccount implements Serializable{
 	
 	@NotNull
 	@Size(min = 9, max = 12)
-	@Column(name = "phone_number")
+	@Column(name = "phone_number", length = 20)
 	@Pattern(regexp = "[0-9]*", message = "must contain only digits")
 	private String phoneNumber;
 	
 	@NotNull
     @Size(min = 6, max = 12)
-	@Column(name = "password")
+	@Column(name = "password", length = 50)
 	private String password;
 	
 	@Size(min = 6, max = 12)
@@ -65,10 +67,10 @@ public class UserAccount implements Serializable{
 	
 	@NotNull
 	@Column(name = "enabled")
-	private boolean enabled = false;
+	private boolean enabled = true;
 	
 	@NotNull
-	@Column(name = "role")
+	@Column(name = "role", length = 20)
 	private String role;
 	
 	public Long getId() {

@@ -29,24 +29,7 @@ public class UserAccountDAOImpl implements UserAccountDAO {
 	public UserAccount findById(Long id) {
 		return em.find(UserAccount.class, id);
 	}
-
-	public UserAccount findByEmail(String email) {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<UserAccount> criteria = cb.createQuery(UserAccount.class);
-		Root<UserAccount> userAccount = criteria.from(UserAccount.class);
-		criteria.select(userAccount).where(cb.equal(userAccount.get("email"), email));
-		return em.createQuery(criteria).getSingleResult();
-	}
-
-	public List<UserAccount> findAllOrderedByUserName() {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<UserAccount> criteria = cb.createQuery(UserAccount.class);
-		Root<UserAccount> userAccount = criteria.from(UserAccount.class);
-
-		criteria.select(userAccount).orderBy(cb.asc(userAccount.get("name")));
-		return em.createQuery(criteria).getResultList();
-	}
-
+	
 	public void register(UserAccount userAccount) {
 		em.persist(userAccount);
 		try {
@@ -64,9 +47,30 @@ public class UserAccountDAOImpl implements UserAccountDAO {
 		
 	}
 
+	public List<UserAccount> findAllOrderedByUserName() {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<UserAccount> criteria = cb.createQuery(UserAccount.class);
+		Root<UserAccount> userAccount = criteria.from(UserAccount.class);
+		criteria.select(userAccount).orderBy(cb.asc(userAccount.get("userName")));
+		return em.createQuery(criteria).getResultList();
+	}
+	
+	public UserAccount findByEmail(String email) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<UserAccount> criteria = cb.createQuery(UserAccount.class);
+		Root<UserAccount> userAccount = criteria.from(UserAccount.class);
+		criteria.select(userAccount).where(cb.equal(userAccount.get("email"), email));
+		return em.createQuery(criteria).getSingleResult();
+	}
+
 	public void update(UserAccount userAccount) {
 		em.merge(userAccount);
 		
+	}
+	
+	public void deleteById(Long id) {
+		UserAccountDAO userAccount = (UserAccountDAO) findById(id);
+		em.remove(userAccount);
 	}
 	
 	

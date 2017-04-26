@@ -23,7 +23,6 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.jdbcAuthentication().dataSource(dataSource)
 		.usersByUsernameQuery("select email, password, enabled from useraccount where email=?")
 		.authoritiesByUsernameQuery("select email, role from useraccount where email=?");
-		//auth.inMemoryAuthentication().withUser("annaostroukh@gmail.com").password("qwerty").authorities("ROLE_USER");
 	}
 	
 	@Override

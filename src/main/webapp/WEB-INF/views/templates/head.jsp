@@ -14,7 +14,9 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value ="/resources/css/main.css"/>" /> 
 <link rel="stylesheet" 
-	href="<c:url value ="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>" />
+	href="<c:url value ="/resources/css/jquery-ui.min.css"/>" />
+	
+	
 
 <script src = "<c:url value = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />" /></script>
 <script type = "text/javascript" charset="utf8" src="<c:url value = "//cdn.datatables.net/1.10.13/js/jquery.dataTables.js" />" /></script>

@@ -8,12 +8,12 @@
   <persistence-unit name="crm-unit" transaction-type="RESOURCE_LOCAL">
   	<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
   	<jta-data-source>java:comp/env/jdbc/crmsystem</jta-data-source>
-    <!--  <exclude-unlisted-classes>false</exclude-unlisted-classes> -->
-    <class>fit.pis.crm.data.UserAccount</class>
+   	<exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
     	<property name="openjpa.Log" value="DefaultLevel=WARN, Runtime=INFO, Tool=INFO, SQL=TRACE, Enhance=TRACE" />
+    	<property name="openjpa.ConnectionFactoryProperties" value="PrintParameters=true" />
     	<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
-    	<property name="openjpa.RuntimeUnenhancedClasses" value="supported" />
+    	<!--  <property name="openjpa.RuntimeUnenhancedClasses" value="supported" /> -->
 		<property name="openjpa.jdbc.DBDictionary" value="mysql" />
     </properties>
   </persistence-unit>

@@ -1,14 +1,14 @@
-INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number)
-VALUES ('1','admin@gmail.com','demo','demo','demo',true,'ROLE_ADMIN','123');
+INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
+VALUES ('1','admin@gmail.com','demo','demo','demo',true,'ROLE_ADMIN','123','2017-04-19');
 
-INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number)
-VALUES ('2','manager@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','123');
+INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
+VALUES ('2','manager@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','123','2017-04-19');
 
-INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number)
-VALUES ('3','supervisor@gmail.com','demo','demo','demo',true,'ROLE_SUPERVISOR','123');
+INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
+VALUES ('3','supervisor@gmail.com','demo','demo','demo',true,'ROLE_SUPERVISOR','123','2017-04-19');
 
 CREATE TABLE useraccount (
-	user_id INTEGER PRIMARY KEY,
+	user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
 	email VARCHAR (50)  NOT NULL,
 	username VARCHAR (50) NOT NULL, 
 	surname	VARCHAR (50)  NOT NULL, 
