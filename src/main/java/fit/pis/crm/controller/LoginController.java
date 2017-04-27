@@ -16,16 +16,16 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 
-import fit.pis.crm.data.UserAccountDAO;
-import fit.pis.crm.model.UserAccount;
+import fit.pis.crm.data.UserAccDAO;
+import fit.pis.crm.model.UserAcc;
 
 @Controller
 public class LoginController {
 
 	@Autowired
-	private UserAccountDAO userAccountDAO;
+	private UserAccDAO userAccountDAO;
 	
-	public UserAccount getCurrentUser() {
+	public UserAcc getCurrentUser() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String email = auth.getName();
 		return userAccountDAO.findByEmail(email);
@@ -66,7 +66,7 @@ public class LoginController {
 	@RequestMapping(value = "admin", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("admin");
+		model.setViewName("redirect:/admin/users");
 		return model;
 	}
 	

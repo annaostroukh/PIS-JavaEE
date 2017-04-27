@@ -50,9 +50,9 @@
 				      </tr>
 				    </c:if>
 		            <c:if test="${not empty users}">
-		            <tr>
-		            	<c:forEach var="user"  items="${users}">
-			                <td>
+		            <c:forEach var="user"  items="${users}">
+		            	<tr>
+			             	<td>
 			                	<c:out value="${user.username}"/>
 			                </td>
 			                <td>
@@ -68,18 +68,19 @@
 			                	<c:out value="${user.date}"/>
 							</td>
 			                <td>
-			                	<a href="<c:url value="/admin/users/edit" />" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
+			                	<a href="<c:url value="/admin/users/edit/${user.id}" />" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
 			                	<c:if test="${not empty user.id}">
-			                		<a href="<c:url value="/admin/delete/${user.id}" />" >
+			                		<a href="<c:url value="/admin/users/${user.id}" />" onClick="return confirm('sure?')" > <!-- TODO: Implement nice dialog window -->
 			                			<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
 			                		</a>
 			                	</c:if>
 			                </td>
-			           </c:forEach>
 		            	</tr>
+		            </c:forEach>
 		            </c:if>
 		        </tbody>
 		    </table>
+		     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" class="btn btn-theme" />
         </div>
     </div>
     <jsp:include page="templates/footer.jsp"></jsp:include>

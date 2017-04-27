@@ -16,9 +16,9 @@
             		<div class="row">
             			<form:form class="form-add-user row" commandName="userProfile">
 			                <div class="col-md-4">
-			                    <form:label path="userName"> Name: </form:label>
-			                    <form:input path="userName" type="text" id="name" name="name" class="form-control" placeholder="Name" />
-			                    <form:errors path="userName" />
+			                    <form:label path="username"> Name: </form:label>
+			                    <form:input path="username" type="text" id="name" name="name" class="form-control" placeholder="Name" />
+			                    <form:errors path="username" />
 			                    <form:hidden path="id" />
 			                    <form:label path="surname"> Surname: </form:label>
 			                    <form:errors path="surname" />

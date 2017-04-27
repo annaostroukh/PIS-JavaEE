@@ -9,12 +9,40 @@ VALUES ('3','supervisor@gmail.com','demo','demo','demo',true,'ROLE_SUPERVISOR','
 
 CREATE TABLE useraccount (
 	user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
-	email VARCHAR (50)  NOT NULL,
-	username VARCHAR (50) NOT NULL, 
-	surname	VARCHAR (50)  NOT NULL, 
-	password VARCHAR (50)  NOT NULL, 
+	email VARCHAR (255)  NOT NULL,
+	username VARCHAR (255) NOT NULL, 
+	surname	VARCHAR (255)  NOT NULL, 
+	password VARCHAR (255)  NOT NULL, 
 	enabled BOOLEAN,
-	role VARCHAR (20)  NOT NULL, 
-	phone_number VARCHAR (20)  NOT NULL, 
+	role VARCHAR (255)  NOT NULL, 
+	phone_number VARCHAR (255)  NOT NULL, 
 	date DATE NOT NULL
 	);
+
+CREATE TABLE brand (
+    brand_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255)
+);	
+
+CREATE TABLE car (
+	car_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+	brand_id INTEGER  NOT NULL,
+	model VARCHAR(255)  NOT NULL,
+	car_year VARCHAR(255)  NOT NULL,
+	description VARCHAR(255),
+	equipment VARCHAR(255),
+	price DECIMAL(8, 2)  NOT NULL,
+	FOREIGN KEY (brand_id) REFERENCES brand(brand_id));
+
+INSERT INTO brand(brand_id,name)
+VALUES ('1','Skoda');	
+
+INSERT INTO brand(brand_id,name)
+VALUES ('2','Tesla');
+
+INSERT INTO car(car_id,brand_id,model,car_year,description,equipment,price)
+VALUES ('1','1','Oktavia','1997','good car','complect',10000);
+
+INSERT INTO car(car_id,brand_id,model,car_year,description,equipment,price)
+VALUES ('2','2','Electro','2012','good car','complect',50000);
+
