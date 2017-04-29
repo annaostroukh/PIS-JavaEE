@@ -56,7 +56,6 @@
                     <form:errors path="confirmPassword" />
                     <!--  <a class="btn btn-info" data-toggle="modal" data-target="#pass">Change password</a> -->
                 </div>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" class="btn btn-theme" />
             </form:form><!-- /form -->
         </div>
     </div>

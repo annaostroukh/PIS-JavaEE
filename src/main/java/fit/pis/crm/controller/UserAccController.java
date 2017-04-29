@@ -1,5 +1,8 @@
 package fit.pis.crm.controller;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -7,6 +10,8 @@ import javax.transaction.RollbackException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,10 +19,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.UnexpectedRollbackException;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fit.pis.crm.data.UserAccDAO;
@@ -136,7 +144,7 @@ public class UserAccController {
 	}
 	
 	@RequestMapping(value ={"admin/profile", "manager/profile", "supervisor/profile"}, method = RequestMethod.GET)
-	public String displayCurrentUserAccount(Model mod) {
+	public String displayCurrentUserProfile(Model mod) {
 		UserAcc useraccount = getCurrentUser();
 		mod.addAttribute("userProfile", useraccount);
 		mod.addAttribute("role", getRoles());
@@ -159,7 +167,14 @@ public class UserAccController {
 		} 
 
 		return "profile";
-		
+	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder)
+	{
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	    dateFormat.setLenient(false);
+	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 	
 }

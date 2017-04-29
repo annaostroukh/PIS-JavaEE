@@ -1,26 +1,35 @@
 package fit.pis.crm.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="useraccount", uniqueConstraints=@UniqueConstraint(columnNames = "email"))
 public class UserAcc {
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,7 +53,7 @@ private static final long serialVersionUID = 1L;
 	private String email;
 	
 	@NotNull(message = "Start date cannot be empty")
-	@DateTimeFormat(pattern="MM/dd/yyyy")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date date;
 	
 	@NotNull
@@ -70,6 +79,24 @@ private static final long serialVersionUID = 1L;
 	@Column(name = "role", length = 20)
 	private String role;
 	
+	@OneToMany(fetch = FetchType.EAGER, cascade={CascadeType.PERSIST,
+		    CascadeType.REFRESH,CascadeType.MERGE},
+	        mappedBy = "manager")
+	private List<Meeting> meetings = new ArrayList<>();
+	
+	@ManyToMany(fetch = FetchType.EAGER, cascade={CascadeType.PERSIST,
+		    CascadeType.REFRESH,CascadeType.MERGE})
+	@JoinTable(name = "client_manager",
+			  joinColumns=@JoinColumn(name="manager_id", referencedColumnName="user_id"),
+		      inverseJoinColumns=@JoinColumn(name="client_id", referencedColumnName="client_id"))
+	protected Set<Client> clients = new HashSet<Client>();
+	
+	public Set<Client> getClients() {
+		return clients;
+	}
+	public void setClients(Set<Client> clients) {
+		this.clients = clients;
+	}
 	public Long getId() {
 		return id;
 	}

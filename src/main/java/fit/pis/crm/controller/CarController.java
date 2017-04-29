@@ -21,9 +21,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fit.pis.crm.data.BrandDAO;
 import fit.pis.crm.data.CarDAO;
+import fit.pis.crm.data.CarModelDAO;
 import fit.pis.crm.data.UserAccDAO;
 import fit.pis.crm.model.Brand;
 import fit.pis.crm.model.Car;
+import fit.pis.crm.model.CarModel;
 import fit.pis.crm.model.UserAcc;
 
 @Controller
@@ -39,6 +41,9 @@ public class CarController {
 	@Autowired
 	private BrandDAO brandDAO;
 	
+	@Autowired
+	private CarModelDAO carModelDAO;
+	
 	private String cars = "cars";
 	private String newCarStep1 = "cars_new_st1";
 	private String edit = "car_edit";
@@ -47,10 +52,20 @@ public class CarController {
 		Map<Long,String> map_brands = new LinkedHashMap<Long,String>();
 		List<Brand> brands = brandDAO.findAllOrderedByName();
 		for (int i = 0; i < brands.size(); i++) {
-			map_brands.put(brands.get(i).getId(), brands.get(i).getName());
+			map_brands.put(brands.get(i).getId(), brands.get(i).getBrandName());
 		}
 		
 		return map_brands;
+	}
+	
+	private Map<Long,String> getModels() {
+		Map<Long,String> map_models = new LinkedHashMap<Long,String>();
+		List<CarModel> models = carModelDAO.findAllOrderedByName();
+		for (int i = 0; i < models.size(); i++) {
+			map_models.put(models.get(i).getId(), models.get(i).getModelName());
+		}
+		
+		return map_models;
 	}
 	
 	public UserAcc getCurrentUser() {
@@ -112,7 +127,8 @@ public class CarController {
 		Car car = carDAO.findById(id);
 		ModelAndView mod = this.getModel();
 		mod.setViewName(edit);
-		mod.addObject("brand", getBrands());
+		mod.addObject("models", getModels());
+		mod.addObject("brands", getBrands());
 		mod.addObject("car", car);
 		return mod;
 	}

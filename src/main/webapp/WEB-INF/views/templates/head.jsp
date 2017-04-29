@@ -15,18 +15,18 @@
 	href="<c:url value ="/resources/css/main.css"/>" /> 
 <link rel="stylesheet" 
 	href="<c:url value ="/resources/css/jquery-ui.min.css"/>" />
-	
-	
-
+<link href="<c:url value="/resources/css/fullcalendar.css"/>"
+	rel="stylesheet" />
 <script src = "<c:url value = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" />" /></script>
 <script type = "text/javascript" charset="utf8" src="<c:url value = "//cdn.datatables.net/1.10.13/js/jquery.dataTables.js" />" /></script>
 <script src = "<c:url value = "https://code.jquery.com/ui/1.12.1/jquery-ui.js" />" /></script>
 <script src = "<c:url value = "/resources/js/bootstrap.min.js" />"/></script>
 <script>
    $( function() {
-     $( "#datepicker" ).datepicker();
+     $( "#datepicker" ).datepicker({'dateFormat': 'dd/mm/yy'});
    });
 </script>
+	
 </head>
 <body>
     <nav class="navbar bg-main navbar-fixed-top" role="navigation">

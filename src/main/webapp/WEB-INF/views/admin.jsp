@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fc" uri="http://custom.function/EL" %> 
 
 <jsp:include page="templates/admin_header.jsp"></jsp:include>
 
@@ -65,7 +66,7 @@
 			                	<c:out value="${user.email}"/>
 			                </td>
 			                <td>
-			                	<c:out value="${user.date}"/>
+			                	<c:out value="${fc:formatDate(user.date,'dd/MM/yyyy')}" />
 							</td>
 			                <td>
 			                	<a href="<c:url value="/admin/users/edit/${user.id}" />" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -80,7 +81,6 @@
 		            </c:if>
 		        </tbody>
 		    </table>
-		     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" class="btn btn-theme" />
         </div>
     </div>
     <jsp:include page="templates/footer.jsp"></jsp:include>

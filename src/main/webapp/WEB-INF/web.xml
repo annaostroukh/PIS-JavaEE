@@ -51,4 +51,15 @@
 	  <resource-env-ref-name>jdbc/crmsystem</resource-env-ref-name>
 	  <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
 	</resource-env-ref>
+	
+	<jsp-config>
+       <taglib>
+         <taglib-uri>
+           	http://custom.function/EL
+         </taglib-uri>
+         <taglib-location>
+           	/WEB-INF/tags/functions.tld
+         </taglib-location>
+       </taglib> 
+    </jsp-config>
 </web-app>

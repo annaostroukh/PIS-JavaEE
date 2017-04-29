@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,13 +27,23 @@ public class Brand implements Serializable {
 	private Long id;
 
 	@NotNull
-	@Column(name="name")
-	@Size(max = 25)
-	private String name;
+	@Column(name="brand_name")
+	private String brandName;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand", cascade={CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
 	private Set<Car> cars = new HashSet<Car>();
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand", cascade={CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
+	private Set<CarModel> models = new HashSet<CarModel>();
 	
+	public String getBrandName() {
+		return brandName;
+	}
+
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -41,20 +52,20 @@ public class Brand implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public Set<Car> getCars() {
 		return cars;
 	}
 
 	public void setCars(Set<Car> cars) {
 		this.cars = cars;
+	}
+	
+	public Set<CarModel> getModels() {
+		return models;
+	}
+
+	public void setModels(Set<CarModel> models) {
+		this.models = models;
 	}
 	
 }

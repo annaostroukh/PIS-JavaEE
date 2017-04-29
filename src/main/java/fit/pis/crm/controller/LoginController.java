@@ -73,14 +73,14 @@ public class LoginController {
 	@RequestMapping(value = "manager", method = RequestMethod.GET)
 	public ModelAndView managerPage() {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("manager");
+		model.setViewName("redirect:/manager/meetings");
 		return model;
 	}
 	
 	@RequestMapping(value = "supervisor", method = RequestMethod.GET)
 	public ModelAndView supervisorPage() {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("supervisor");
+		model.setViewName("redirect:/supervisor/dashboard");
 		return model;
 	}
 }

@@ -4,9 +4,18 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
-<div sec:authorize="hasRole('ROLE_ADMIN')">
+
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+	<jsp:include page="templates/admin_header.jsp"></jsp:include> 
+</sec:authorize>
+
+<sec:authorize access="hasRole('ROLE_MANAGER')">
+	<jsp:include page="templates/manager_header.jsp"></jsp:include>
+</sec:authorize>
+
+<sec:authorize access="hasRole('ROLE_SUPERVISER')">
 	<jsp:include page="templates/admin_header.jsp"></jsp:include>
-</div>
+</sec:authorize>
 
 	 <div class="row">
         <div class="col-md-12">
@@ -31,9 +40,21 @@
 			                        <form:input path="email" type="email" name="email" id="Email" class="form-control" placeholder="Email" />
 			                        <form:errors path="email" />
 			                    <form:label path="role"> Position: </form:label>
-			                        <form:select path="role" class="form-control" name="role">
-			                        	<form:options items="${role}" />
-			                        </form:select>
+			                        <sec:authorize access="hasRole('ROLE_MANAGER')">
+				                        <form:select disabled="${true}" path="role" class="form-control" name="role">
+				                        	<form:options items="${role}" />
+				                        </form:select>
+			                        </sec:authorize>
+			                         <sec:authorize access="hasRole('ROLE_ADMIN')">
+				                        <form:select path="role" class="form-control" name="role">
+				                        	<form:options items="${role}" />
+				                        </form:select>
+			                        </sec:authorize>
+			                         <sec:authorize access="hasRole('ROLE_SUPERVISOR')">
+				                        <form:select disabled="${true}" path="role" class="form-control" name="role">
+				                        	<form:options items="${role}" />
+				                        </form:select>
+			                        </sec:authorize>
 			                </div>
 			                <div class="col-md-4">
 			                    <form:label path="date"> Start date: </form:label>

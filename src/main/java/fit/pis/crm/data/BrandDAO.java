@@ -6,7 +6,7 @@ import fit.pis.crm.model.Brand;
 
 public interface BrandDAO {
 	
-public List<Brand> findAllOrderedByName();
+	public List<Brand> findAllOrderedByName();
 	
 	public Brand findById(Long id);
 	
