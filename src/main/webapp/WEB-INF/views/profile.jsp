@@ -13,8 +13,8 @@
 	<jsp:include page="templates/manager_header.jsp"></jsp:include>
 </sec:authorize>
 
-<sec:authorize access="hasRole('ROLE_SUPERVISER')">
-	<jsp:include page="templates/admin_header.jsp"></jsp:include>
+<sec:authorize access="hasRole('ROLE_SUPERVISOR')">
+	<jsp:include page="templates/supervisor_header.jsp"></jsp:include>
 </sec:authorize>
 
 	 <div class="row">
@@ -42,7 +42,7 @@
 			                    <form:label path="role"> Position: </form:label>
 			                        <sec:authorize access="hasRole('ROLE_MANAGER')">
 				                        <form:select disabled="${true}" path="role" class="form-control" name="role">
-				                        	<form:options items="${role}" />
+				                        	<form:option value="ROLE_MANAGER">Manager</form:option>
 				                        </form:select>
 			                        </sec:authorize>
 			                         <sec:authorize access="hasRole('ROLE_ADMIN')">
@@ -52,7 +52,7 @@
 			                        </sec:authorize>
 			                         <sec:authorize access="hasRole('ROLE_SUPERVISOR')">
 				                        <form:select disabled="${true}" path="role" class="form-control" name="role">
-				                        	<form:options items="${role}" />
+				                        	<form:option value="ROLE_SUPERVISOR">Supervisor</form:option>
 				                        </form:select>
 			                        </sec:authorize>
 			                </div>
@@ -65,6 +65,7 @@
 			                    <form:input path="confirmPassword" type="password" id="confirmPassword" class="form-control" placeholder="Repeat password" />
 			                    <form:errors path="confirmPassword" />
 			                </div>
+			                <form:hidden path="phoneNumber"/>
 			                <input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" class="btn btn-theme" />
 			            </form:form>

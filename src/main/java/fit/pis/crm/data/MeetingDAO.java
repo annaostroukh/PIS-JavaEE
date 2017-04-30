@@ -14,6 +14,8 @@ public interface MeetingDAO {
 	public List<Meeting> findAllInMonth(String year, String month);
 	
 	public List<Meeting> findBetweenDates(Date start, Date end);
+	
+	public List<Meeting> findToday(Date date);
 
     public void register(Meeting meeting);
     

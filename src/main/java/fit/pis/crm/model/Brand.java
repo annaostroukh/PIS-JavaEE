@@ -13,7 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name="brand")
@@ -30,10 +32,11 @@ public class Brand implements Serializable {
 	@Column(name="brand_name")
 	private String brandName;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand", cascade={CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "brand", cascade={CascadeType.REFRESH,CascadeType.MERGE})
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Set<Car> cars = new HashSet<Car>();
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand", cascade={CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "brand")
 	private Set<CarModel> models = new HashSet<CarModel>();
 	
 	public String getBrandName() {

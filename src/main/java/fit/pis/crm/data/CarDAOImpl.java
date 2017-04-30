@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -18,7 +17,7 @@ import fit.pis.crm.model.Car;
 @Transactional
 public class CarDAOImpl implements CarDAO{
 	
-	@PersistenceContext(unitName = "crm-unit", type = PersistenceContextType.EXTENDED)
+	@PersistenceContext(unitName = "crm-unit")
 	private EntityManager em;
 
 	@Override

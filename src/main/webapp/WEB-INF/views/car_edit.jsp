@@ -10,8 +10,10 @@
             <form:form class="form-edit-car" commandName="car">
                 <div class="row">
                     <div class="col-md-4">
+                    <form:hidden path="id"/>
+                    <form:hidden path="brand.brandName"/>
                         <label> Select brand </label>
-                            <form:select path="brand" class="form-control">
+                            <form:select path="brand.id" class="form-control">
                                 <form:options items="${brands}" />
                             </form:select>
                         <label> Or </label><br>
@@ -19,7 +21,7 @@
                     </div>
                     <div class="col-md-4">
                         <label> Select model </label>
-                            <form:select path="model" class="form-control">
+                            <form:select path="model.id" class="form-control">
                                 <form:options items="${models}" />
                             </form:select>
                         <label> Or </label><br>
@@ -28,8 +30,10 @@
                     <div class="col-md-4">
                         <label> Year </label>
                             <form:input path="year" type="text" name="year" id="Year" class="form-control" />
+                            <form:errors path="year" />
                         <label>Price</label>
                         <form:input path="price" class="form-control" type="number" />
+                        <form:errors path="price" />
                     </div>
                 </div>
                 <div class="row">
@@ -51,7 +55,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="model" tabindex="-1" role="dialog" aria-labelledby="model">
+   <!--  <div class="modal fade" id="model" tabindex="-1" role="dialog" aria-labelledby="model">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form>
@@ -69,7 +73,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> 
 
     <div class="modal fade" id="brand" tabindex="-1" role="dialog" aria-labelledby="brand">
         <div class="modal-dialog" role="document">
@@ -89,6 +93,6 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div>  -->
 
 <jsp:include page="templates/footer.jsp"></jsp:include>

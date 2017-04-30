@@ -13,10 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -55,14 +52,12 @@ public class Meeting implements Serializable {
 	@Column(name = "meeting_state")
 	private String meetingState;
 	
-	@Column(name = "client")
-	@ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.PERSIST,
-		    CascadeType.REFRESH,CascadeType.MERGE})
+	@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name = "client")
 	private Client client;
 	
-	@Column(name = "manager")
-	@ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.PERSIST,
-		    CascadeType.REFRESH,CascadeType.MERGE})
+	@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name = "manager")
 	private UserAcc manager;
 
 	public Long getId() {

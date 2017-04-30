@@ -6,14 +6,16 @@
                         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
   <persistence-unit name="crm-unit" transaction-type="RESOURCE_LOCAL">
-  	<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+  	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
   	<jta-data-source>java:comp/env/jdbc/crmsystem</jta-data-source>
    	<exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-    	<property name="openjpa.Log" value="DefaultLevel=WARN, Runtime=INFO, Tool=INFO, SQL=TRACE, Enhance=TRACE" />
-    	<property name="openjpa.ConnectionFactoryProperties" value="PrintParameters=true" />
-    	<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
-		<property name="openjpa.jdbc.DBDictionary" value="mysql" />
+    	<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform" />
+    	<property name="hibernate.hbm2ddl.auto" value="update" />
+    	<property name="hibernate.hbm2ddl.import_files" value="META-INF/import.sql" />
+        <property name="hibernate.show_sql" value="false" />
+         <property name="hibernate.transaction.manager_lookup_class"
+                value="org.apache.openejb.hibernate.TransactionManagerLookup"/>
     </properties>
   </persistence-unit>
 </persistence>

@@ -113,10 +113,10 @@ INSERT INTO client(client_id,client_name,surname,email,phone_number,birthday,sta
 VALUES ('2','Jack','Doe Jr','client2@gmail.com','123456789','2017-04-19','Active');
 
 INSERT INTO client(client_id,client_name,surname,email,phone_number,birthday,status)
-VALUES ('3','Max','Doe','client3@gmail.com','123456789','2017-04-19','Active');
+VALUES ('3','Max','Doe','client2@gmail.com','123456789','2017-04-19','Active');
 
 INSERT INTO client(client_id,client_name,surname,email,phone_number,birthday,status)
-VALUES ('4','Jim','Doe','client4@gmail.com','123456789','2017-04-19','Active');
+VALUES ('4','Jim','Doe','client2@gmail.com','123456789','2017-04-19','Active');
 
 
 INSERT INTO client_car(client_id, car_id)

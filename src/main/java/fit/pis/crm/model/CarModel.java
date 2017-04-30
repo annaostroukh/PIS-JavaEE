@@ -15,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="model")
@@ -32,11 +31,11 @@ public class CarModel implements Serializable {
 	private String modelName;
 	
 	@NotNull
-	@Column(name = "brand")
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity=Brand.class,fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name = "brand")
 	private Brand brand;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "model", cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(targetEntity=Car.class,fetch = FetchType.EAGER, mappedBy = "model", cascade=CascadeType.ALL)
 	private Set<Car> cars = new HashSet<Car>();
 
 	public Set<Car> getCars() {

@@ -45,7 +45,6 @@ public class CarController {
 	private CarModelDAO carModelDAO;
 	
 	private String cars = "cars";
-	private String newCarStep1 = "cars_new_st1";
 	private String edit = "car_edit";
 	
 	private Map<Long,String> getBrands() {
@@ -82,42 +81,37 @@ public class CarController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showAllCars(Model mod) {
-		//ModelAndView mod = this.getModel();
 		mod.addAttribute("cars", carDAO.findAllOrderedByBrand());
-		//mod.addObject("cars", carDAO.findAllOrderedByBrand());
-		//mod.setViewName(cars);
  		return "cars";
 	}
 	
-	@RequestMapping(value = "add/step1", method = RequestMethod.GET)
+	@RequestMapping(value = "new", method = RequestMethod.GET)
 	public ModelAndView newCarGet() {
 		ModelAndView mod = this.getModel();
-		mod.setViewName(newCarStep1);
-		//Car newCar = new Car ();
-		Brand newBrand = new Brand();
-		//mod.addObject("brands", getBrands());
-		mod.addObject("brand", newBrand);
+		mod.setViewName(edit);
+		Car newCar = new Car ();
+		mod.addObject("models", getModels());
+		mod.addObject("brands", getBrands());
+		mod.addObject("car", newCar);
 		
-		//mod.addObject("car", newCar);
 		return mod;
 	}
 	
-	@RequestMapping(value = "add/step1", method = RequestMethod.POST)
-	public ModelAndView newCarPost(@Valid @ModelAttribute("brand") Brand brand, BindingResult result) {
+	@RequestMapping(value = "new", method = RequestMethod.POST)
+	public ModelAndView newCarPost(@Valid @ModelAttribute("car") Car car, BindingResult result) {
 		ModelAndView mod = this.getModel();
 		if (!result.hasErrors()) {
 			try {
-				brandDAO.register(brand);
-				//carDAO.register(car);
-				mod.setViewName("redirect:/cars");
+				carDAO.register(car);
+				mod.setViewName("redirect:/admin/cars");
 				return mod;
 			} catch (UnexpectedRollbackException e) {
 				mod.addObject("error", e.getCause().getCause());
-				mod.setViewName("add/step1");
+				mod.setViewName("admin/cars/new");
 				return mod;
 			}
 		} else {
-			mod.setViewName(newCarStep1);
+			mod.setViewName(edit);
 			return mod;
 		}
 	}
@@ -131,6 +125,16 @@ public class CarController {
 		mod.addObject("brands", getBrands());
 		mod.addObject("car", car);
 		return mod;
+	}
+	
+	@ModelAttribute("models")
+	public Map<Long,String> registerModels() {
+	    return getModels();
+	}
+	
+	@ModelAttribute("brands")
+	public Map<Long,String> registerBrands() {
+	    return getBrands();
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)

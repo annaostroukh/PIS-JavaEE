@@ -1,13 +1,10 @@
 package fit.pis.crm.data;
 
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -21,7 +18,7 @@ import fit.pis.crm.model.UserAcc;
 @Transactional
 public class UserAccDAOImpl implements UserAccDAO{
 
-	@PersistenceContext(unitName = "crm-unit", type = PersistenceContextType.EXTENDED)
+	@PersistenceContext(unitName = "crm-unit")
 	private EntityManager em;
 	
 	@Override
@@ -50,18 +47,6 @@ public class UserAccDAOImpl implements UserAccDAO{
 	@Override
 	public void register(UserAcc userAccount) {
 		em.persist(userAccount);
-		try {
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			String hashSource = userAccount.getEmail() + userAccount.getUsername() + userAccount.getSurname() + userAccount.getPassword() 
-					 + userAccount.getRole() + userAccount.getPhoneNumber() + userAccount.getDate();
-			md.update(hashSource.getBytes("UTF-8"));
-			em.merge(userAccount);
-		} catch (NoSuchAlgorithmException ex) {
-			ex.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		return;
 		
 	}
 
@@ -76,6 +61,47 @@ public class UserAccDAOImpl implements UserAccDAO{
 	public void update(UserAcc userAccount) {
 		em.merge(userAccount);
 		
+	}
+
+	@Override
+	public List<UserAcc> findManagers() {
+		String manager = "ROLE_MANAGER";
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<UserAcc> criteria = cb.createQuery(UserAcc.class);
+		Root<UserAcc> userAccount = criteria.from(UserAcc.class);
+		criteria.select(userAccount).where(cb.equal(userAccount.get("role"), manager)).orderBy(cb.asc(userAccount.get("username")));
+		return em.createQuery(criteria).getResultList();
+	}
+
+	@Override
+	public UserAcc findManagerWithMaxLoad() {
+		/*String manager = "ROLE_MANAGER";
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<UserAcc> criteria = cb.createQuery(UserAcc.class);
+		Root<UserAcc> userAccount = criteria.from(UserAcc.class);
+		criteria.multiselect(cb.max(cb.count(userAccount.get("meetings")))).orderBy(cb.asc(userAccount.get("username")));
+		criteria.select(userAccount).where(cb.max(cb.count(userAccount.get("meetings"))));
+		return em.createQuery(criteria).getResultList();*/
+		return null;
+	}
+
+
+	@Override
+	public List<UserAcc> findManagersWeekMeetings(Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserAcc> findManagersTodayMeetings(Date today) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserAcc findManagerWithMinLoad() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

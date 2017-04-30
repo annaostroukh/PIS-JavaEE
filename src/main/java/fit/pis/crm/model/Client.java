@@ -2,10 +2,8 @@ package fit.pis.crm.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -16,7 +14,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -60,26 +57,24 @@ public class Client implements Serializable{
 	@Pattern(regexp = "[0-9]*", message = "must contain only digits")
 	private String phoneNumber;
 	
-	@DateTimeFormat(pattern="MM/dd/yyyy")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date birthday;
 	
 	@Column(name = "status")
 	private String status;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade={CascadeType.PERSIST,
-		    CascadeType.REFRESH,CascadeType.MERGE}, 
+	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL, 
 			mappedBy = "client")
 	private List<Meeting> meetings = new ArrayList<>();
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade={CascadeType.PERSIST,
-		    	CascadeType.REFRESH,CascadeType.MERGE})
+	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="client_car",
 		      joinColumns=@JoinColumn(name="client_id", referencedColumnName="client_id"),
 		      inverseJoinColumns=@JoinColumn(name="car_id", referencedColumnName="car_id"))
 	private Set<Car> cars = new HashSet<Car>();
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy="clients", 
-				cascade=CascadeType.PERSIST)
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy="clients", 
+			cascade=CascadeType.ALL)
 	private Set<UserAcc> managers = new HashSet<UserAcc>();
 
 

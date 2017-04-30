@@ -1,17 +1,14 @@
 package fit.pis.crm.controller;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import javax.transaction.RollbackException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,7 +22,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fit.pis.crm.data.UserAccDAO;
@@ -85,6 +81,11 @@ public class UserAccController {
 		return mod;
 	}
 	
+	@ModelAttribute("role")
+	public Map<Role,String> registerRole() {
+	    return getRoles();
+	}
+	
 	@RequestMapping(value = "admin/users/new", method = RequestMethod.POST)
 	public ModelAndView newUserPost(@Valid @ModelAttribute("userAccount") UserAcc userAccount, BindingResult result) {
 		ModelAndView mod = this.getModel();
@@ -117,7 +118,7 @@ public class UserAccController {
 	}
 
 	@RequestMapping(value = "admin/users/edit/{id}", method = RequestMethod.POST)
-	public ModelAndView updateUserAccount(@Valid @ModelAttribute("user") UserAcc userAccout, BindingResult result) {
+	public ModelAndView updateUserAccount(@Valid @ModelAttribute("userAccount") UserAcc userAccout, BindingResult result) {
 		ModelAndView mod = this.getModel();
 		if (!result.hasErrors()) {
 			try {
@@ -165,7 +166,6 @@ public class UserAccController {
 				return "profile";
 			}
 		} 
-
 		return "profile";
 	}
 	

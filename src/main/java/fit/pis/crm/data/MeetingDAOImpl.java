@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -23,7 +22,7 @@ import fit.pis.crm.model.UserAcc;
 @Transactional
 public class MeetingDAOImpl implements MeetingDAO {
 
-	@PersistenceContext(unitName = "crm-unit", type = PersistenceContextType.EXTENDED)
+	@PersistenceContext(unitName = "crm-unit")
 	private EntityManager em;
 	
 	@Override
@@ -58,18 +57,6 @@ public class MeetingDAOImpl implements MeetingDAO {
 		}
 		
 	}
-	
-	@Override
-	public List<Meeting> findBetweenDates(Date start, Date end){
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Meeting> criteria = cb.createQuery(Meeting.class);
-		Root<Meeting> meeting = criteria.from(Meeting.class);
-		criteria.select(meeting)
-				.where(cb.and(cb.greaterThanOrEqualTo(meeting.<Date>get("startDate"), start),
-						cb.lessThanOrEqualTo(meeting.<Date>get("endDate"), end)))
-				.orderBy(cb.asc(meeting.get("startDate")));
-		return em.createQuery(criteria).getResultList();
-	}
 
 	@Override
 	public void register(Meeting meeting) {
@@ -88,6 +75,27 @@ public class MeetingDAOImpl implements MeetingDAO {
 	public void update(Meeting meeting) {
 		em.merge(meeting);
 		
+	}
+
+	@Override
+	public List<Meeting> findBetweenDates(Date start, Date end) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Meeting> criteria = cb.createQuery(Meeting.class);
+		Root<Meeting> meeting = criteria.from(Meeting.class);
+		criteria.select(meeting)
+				.where(cb.and(cb.greaterThanOrEqualTo(meeting.<Date>get("date"), start),
+						cb.lessThanOrEqualTo(meeting.<Date>get("date"), end)))
+				.orderBy(cb.asc(meeting.get("date")));
+		return em.createQuery(criteria).getResultList();
+	}
+
+	@Override
+	public List<Meeting> findToday(Date date) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Meeting> criteria = cb.createQuery(Meeting.class);
+		Root<Meeting> meeting = criteria.from(Meeting.class);
+		criteria.select(meeting).where(cb.equal(meeting.get("date"), date));
+		return em.createQuery(criteria).getResultList();
 	}
 
 }

@@ -17,6 +17,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 @Table(name="car")
 public class Car implements Serializable {
@@ -28,15 +31,14 @@ public class Car implements Serializable {
 	private Long id;
 	
 	@NotNull
-	@Column(name = "brand")
-	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.PERSIST,
-		    CascadeType.REFRESH,CascadeType.MERGE})
+	@ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.REFRESH,CascadeType.MERGE, CascadeType.DETACH})
+	@JoinColumn(name = "brand")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Brand brand;
 	
 	@NotNull
-	@Column(name = "model")
-	@ManyToOne(fetch = FetchType.LAZY, cascade={CascadeType.PERSIST,
-		    CascadeType.REFRESH,CascadeType.MERGE})
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "model")
 	private CarModel model;
 	
 	@NotNull(message = "Year cannot be empty")
@@ -53,8 +55,8 @@ public class Car implements Serializable {
 	@Column(name = "price")
 	private Double price;
 	
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy="cars", 
-			cascade=CascadeType.PERSIST)
+	@ManyToMany(targetEntity=Client.class, fetch = FetchType.EAGER, mappedBy="cars", 
+			cascade=CascadeType.ALL)
 	private Set<Client> clients = new HashSet<Client>();
 	
 	public Set<Client> getClients() {

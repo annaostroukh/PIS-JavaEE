@@ -7,7 +7,7 @@
 	 <div class="row">
         <div class="col-md-12">
             <h1>Cars</h1>
-            <a href="<c:url value="/admin/cars/add/step1" />" ><button class="btn btn-info">Add car</button></a>
+            <a href="<c:url value="/admin/cars/new" />" ><button class="btn btn-info">Add car</button></a>
         	</br>
         	</br>
             <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">

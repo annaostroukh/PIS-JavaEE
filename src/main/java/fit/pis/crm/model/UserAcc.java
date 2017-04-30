@@ -1,5 +1,6 @@
 package fit.pis.crm.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -28,7 +29,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="useraccount", uniqueConstraints=@UniqueConstraint(columnNames = "email"))
-public class UserAcc {
+public class UserAcc implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -79,12 +80,12 @@ public class UserAcc {
 	@Column(name = "role", length = 20)
 	private String role;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade={CascadeType.PERSIST,
+	@OneToMany(targetEntity=Meeting.class,fetch = FetchType.EAGER, cascade={CascadeType.PERSIST,
 		    CascadeType.REFRESH,CascadeType.MERGE},
 	        mappedBy = "manager")
 	private List<Meeting> meetings = new ArrayList<>();
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade={CascadeType.PERSIST,
+	@ManyToMany(targetEntity=Client.class,fetch = FetchType.EAGER, cascade={CascadeType.PERSIST,
 		    CascadeType.REFRESH,CascadeType.MERGE})
 	@JoinTable(name = "client_manager",
 			  joinColumns=@JoinColumn(name="manager_id", referencedColumnName="user_id"),
