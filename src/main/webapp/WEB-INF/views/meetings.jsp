@@ -10,7 +10,7 @@
 	<div class="row">
         <div class="col-md-12">
             <h1>Schedule</h1>
-            <a href="manager/meetings/edit"><button class="btn btn-info">Plan a meeting</button></a>
+            <a href="meetings/new"><button class="btn btn-info">Plan a meeting</button></a>
             </br>
             </br>
             <div class="row">

@@ -26,7 +26,7 @@
                    		<form:input path="username" type="text" id="name" name="name" class="form-control" placeholder="Name" />
                    	<form:hidden path="id"/>
 					<form:hidden path="enabled" />
-                    <form:errors path="username" />
+                    <form:errors cssErrorClass="form-control error" path="username" />
                     <label> Surname: </label>
                     	<form:input path="surname" type="text" id="surname" name="surname" class="form-control" placeholder="Surname" />
                     <form:errors path="surname" />

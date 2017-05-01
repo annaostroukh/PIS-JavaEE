@@ -15,7 +15,7 @@ public interface ClientDAO {
     public List<Client> findAllOrderedByName();
     
     public List<Client> findAllWithoutManager();
-
+    
     public void register(Client client);
     
     public void deleteById(Long id);
