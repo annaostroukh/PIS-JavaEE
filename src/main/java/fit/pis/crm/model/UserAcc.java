@@ -83,8 +83,7 @@ public class UserAcc implements Serializable {
 	@Column(name = "role", length = 20)
 	private String role;
 	
-	@OneToMany(targetEntity=Meeting.class,fetch = FetchType.EAGER, cascade={CascadeType.PERSIST,
-		    CascadeType.REFRESH,CascadeType.MERGE},
+	@OneToMany(targetEntity=Meeting.class,fetch = FetchType.EAGER, orphanRemoval = true,
 	        mappedBy = "manager")
 	private List<Meeting> meetings = new ArrayList<>();
 	

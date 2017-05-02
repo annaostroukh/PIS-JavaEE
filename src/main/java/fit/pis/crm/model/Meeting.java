@@ -54,11 +54,11 @@ public class Meeting implements Serializable {
 	@Column(name = "meeting_state")
 	private String meetingState;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "client", nullable = false)
 	private Client client;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "manager")
 	private UserAcc manager;
 
