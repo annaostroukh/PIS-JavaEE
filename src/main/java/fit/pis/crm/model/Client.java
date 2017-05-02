@@ -158,7 +158,12 @@ public class Client implements Serializable{
 		this.cars = cars;
 	}
 	
-	
+	@Override
+	public String toString() {
+		String result = new String();
+		result = this.getName() + " " + this.getSurname();
+		return result;
+	}
 	
 	
 }

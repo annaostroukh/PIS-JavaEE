@@ -7,7 +7,7 @@
 <jsp:include page="templates/manager_header.jsp"></jsp:include>
  <div class="row">
         <div class="col-md-12">
-            <h1>Add a meeting</h1>
+            <h1>Edit meeting</h1>
             <div class="row">
                 <div class=" col-md-8 col-md-offset-2">
                     <form:form class="form-add-user row" commandName="meeting" name="addMeetingForm" id="meeting_add" method="POST">
@@ -18,8 +18,6 @@
 					<c:if test="${not empty message}">
 						<div class="error">${message}</div>
 					</c:if>
-				
-                    	<form:hidden path="id"/>
 		                <div class="col-md-6">
 		                	<label> Title*: </label>
 		                   		<form:input path="title" type="text" id="title" name="title" class="form-control" placeholder="Title" />
@@ -28,7 +26,7 @@
 		                        <form:input path="date" type="text" name="start-date" class="form-control" id="datepickerT" />
 		                        <form:errors class="error" path="date" />
 		                	<label> Time*: </label>
-		                   		<form:input path="time" type="text" id="time" name="time" class="form-control" value="10:00" placeholder="Time" />
+		                   		<form:input path="time" type="text" id="time" name="time" class="form-control" placeholder="10:00" />
 		                   		<form:errors class="error" path="time" />
 		                   	<label> Place: </label>
 		                   		<form:input path="place" type="text" id="place" name="place" class="form-control" placeholder="Place" />
@@ -37,7 +35,6 @@
 		                <div class="col-md-6">
 		                	<label> Client: </label>
 		                        <form:select path="client.id" class="form-control" name="clients">
-		                        	<form:option value="" label="- Select -"/>
 		           					<form:options items="${clients}" />
 		                        </form:select>
 		                    <label> Description: </label>
@@ -51,6 +48,7 @@
 		                <form:hidden path="client.name"/>
 		                <form:hidden path="client.surname"/>
 		                <form:hidden path="client.email"/>
+		                <form:hidden path="manager"/>
 
 		            </form:form><!-- /form -->
                 </div>

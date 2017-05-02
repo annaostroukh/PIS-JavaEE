@@ -1,6 +1,9 @@
 package fit.pis.crm.data;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -55,13 +58,26 @@ public class ClientDAOImpl implements ClientDAO {
 	
 	@Override
 	public List<Client> findAllForManager(UserAcc manager) {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Client> criteria = cb.createQuery(Client.class);
-		Root<Client> client = criteria.from(Client.class);
-		criteria.select(client)
-			.where(cb.equal(client.get("managers"), manager))
-			.orderBy(cb.asc(client.get("name")));
-		return em.createQuery(criteria).getResultList();
+		List<Client> result = new ArrayList<>();
+//		Set<Client> allclients = manager.getClients();
+//		for (Client c : findAllOrderedByName()){
+//			HashSet<Manager> managers = c.
+//			if (c.getId().equals(manager.getId())) {
+//				result.add(c);
+//			}
+//		}
+		result.addAll(manager.getClients());
+		return result;
+		
+		
+//		CriteriaBuilder cb = em.getCriteriaBuilder();
+//		CriteriaQuery<Client> criteria = cb.createQuery(Client.class);
+//		Root<Client> client = criteria.from(Client.class);
+//		HashSet<Client> set = criteria.select(client);
+//		criteria.select(client)
+//			.where(cb.equal(client.get("managers"), manager))
+//			.orderBy(cb.asc(client.get("name")));
+//		return em.createQuery(criteria).getResultList();
 	}
 
 	@Override
