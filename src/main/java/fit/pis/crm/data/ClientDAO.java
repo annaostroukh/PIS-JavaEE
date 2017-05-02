@@ -14,6 +14,8 @@ public interface ClientDAO {
 
     public List<Client> findAllOrderedByName();
     
+    public List<Client> findAllForManager(UserAcc manager);
+    
     public List<Client> findAllWithoutManager();
     
     public void register(Client client);

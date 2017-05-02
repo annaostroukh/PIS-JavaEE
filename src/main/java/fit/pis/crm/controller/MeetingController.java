@@ -79,8 +79,8 @@ public class MeetingController {
 	@RequestMapping(value = "meetings/new", method = RequestMethod.GET)
 	public ModelAndView newMeetingGet() {
 		ModelAndView mod = this.getModel();
-		// mod.addObject("clients", clientDAO.findAllForManager(this.getCurrentUser()));
-		mod.addObject("clients", getClients());
+		mod.addObject("clients", clientDAO.findAllForManager(this.getCurrentUser()));
+		// mod.addObject("clients", getClients());
 		mod.setViewName(edit);
 		Meeting newMeeting = new Meeting ();
 		mod.addObject("meeting", newMeeting);

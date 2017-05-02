@@ -6,3 +6,8 @@ target/apache-tomee/*
 target/apache-tomee/
 target/apache-tomee/**
 target/apache-tomee/**/*
+target/*
+target/**
+target/*/*
+target/**/*
+target/

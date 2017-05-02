@@ -52,6 +52,17 @@ public class ClientDAOImpl implements ClientDAO {
 		criteria.select(client).orderBy(cb.asc(client.get("name")));
 		return em.createQuery(criteria).getResultList();
 	}
+	
+	@Override
+	public List<Client> findAllForManager(UserAcc manager) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Client> criteria = cb.createQuery(Client.class);
+		Root<Client> client = criteria.from(Client.class);
+		criteria.select(client)
+			.where(cb.equal(client.get("managers"), manager))
+			.orderBy(cb.asc(client.get("name")));
+		return em.createQuery(criteria).getResultList();
+	}
 
 	@Override
 	public void register(Client client) {
