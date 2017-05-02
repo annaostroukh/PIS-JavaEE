@@ -25,6 +25,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -49,7 +51,8 @@ public class UserAcc implements Serializable {
 	@Column(name = "surname", length = 50)
 	private String surname;
 	
-	@NotNull(message = "Email address cannot be empty")
+	@NotEmpty(message = "Email address cannot be empty") 
+	@Email
 	@Column(name = "email", length = 50)
 	private String email;
 	
@@ -76,7 +79,7 @@ public class UserAcc implements Serializable {
 	@Column(name = "enabled")
 	private boolean enabled = true;
 	
-	@NotNull(message = "Select a position, please")
+	@NotEmpty(message = "Select a position, please")
 	@Column(name = "role", length = 20)
 	private String role;
 	

@@ -52,6 +52,11 @@
 	  <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
 	</resource-env-ref>
 	
+	<!-- Set timeout for logout to 10 minutes --> 
+    <!--  <session-config> 
+            <session-timeout>10</session-timeout> 
+      </session-config>  --> 
+	
 	<jsp-config>
        <taglib>
          <taglib-uri>
