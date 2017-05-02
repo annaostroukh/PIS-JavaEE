@@ -28,15 +28,16 @@ public class Brand implements Serializable {
 	@GeneratedValue
 	private Long id;
 
-	@NotNull
+	@NotNull(message="Name cannot be empty")
 	@Column(name="brand_name")
 	private String brandName;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "brand", cascade={CascadeType.REFRESH,CascadeType.MERGE})
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "brand", 
+			cascade={CascadeType.REFRESH,CascadeType.MERGE}, orphanRemoval = true)
 	private Set<Car> cars = new HashSet<Car>();
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "brand")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "brand", 
+			cascade={CascadeType.REFRESH,CascadeType.MERGE}, orphanRemoval = true)
 	private Set<CarModel> models = new HashSet<CarModel>();
 	
 	public String getBrandName() {

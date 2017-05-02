@@ -21,26 +21,28 @@
                     <form:hidden path="id"/>
                     <form:hidden path="brand.brandName"/>
                         <label> Select brand* </label>
-                            <form:select path="brand.id" class="form-control">
+                            <form:select path="brand.id" class="form-control" id="brand">
                                 <form:options items="${brands}" />
                             </form:select>
+                            <form:errors class="error" path="brand.id" />
                         <label> Or </label><br>
-                        <a class="btn btn-info" data-toggle="modal" data-target="#brand">Add new brand</a>
+                       	<a class="btn btn-info" data-toggle="modal">Add new brand</a>
                     </div>
                     <div class="col-md-4">
                         <label> Select model* </label>
-                            <form:select path="model.id" class="form-control">
+                            <form:select path="model.id" class="form-control" id="model">
                                 <form:options items="${models}" />
                             </form:select>
+                            <form:errors class="error" path="model.id" />
                         <label> Or </label><br>
-                        <a class="btn btn-info" data-toggle="modal" data-target="#model">Add new model</a>
+                        <a class="btn btn-info" data-toggle="modal">Add new model</a>
                     </div>
                     <div class="col-md-4">
                         <label> Year* </label>
-                            <form:input path="year" type="text" name="year" id="Year" class="form-control" />
+                            <form:input path="year" type="text" name="year" id="year" class="form-control" />
                             <form:errors class="error" path="year" />
                         <label>Price*</label>
-                        <form:input path="price" class="form-control" type="number" />
+                        <form:input path="price" class="form-control" type="number" id="price" />
                         <form:errors class="error" path="price" />
                     </div>
                 </div>
@@ -83,24 +85,6 @@
         </div>
     </div> 
 
-    <div class="modal fade" id="brand" tabindex="-1" role="dialog" aria-labelledby="brand">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add new brand</h4>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" id="new-brand" class="form-control" placeholder="Brand name">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>  -->
+      -->
 
 <jsp:include page="templates/footer.jsp"></jsp:include>

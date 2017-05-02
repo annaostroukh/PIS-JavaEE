@@ -15,10 +15,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="car")
@@ -30,18 +33,17 @@ public class Car implements Serializable {
     @Column(name = "car_id")
 	private Long id;
 	
-	@NotNull(message = "Brand cannot be empty")
-	@ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.REFRESH,CascadeType.MERGE, CascadeType.DETACH})
-	@JoinColumn(name = "brand")
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	@NotNull (message = "Brand cannot be empty")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "brand", nullable = false)
 	private Brand brand;
 	
-	@NotNull(message = "Model cannot be empty")
+	@NotNull (message = "Model cannot be empty") 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "model")
 	private CarModel model;
 	
-	@NotNull(message = "Year cannot be empty")
+	@NotEmpty(message = "Year cannot be empty")
 	@Column(name = "car_year")
 	private String year;
 	
