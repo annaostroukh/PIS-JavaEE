@@ -8,11 +8,19 @@
         <div class="col-md-12">
             <h1>Edit a car</h1>
             <form:form class="form-edit-car" commandName="car">
+            	<c:if test="${not empty error}">
+             		<div class="error-title">Following errors occurred:</div>
+					<div class="error">${error}</div>
+				</c:if>
+				<c:if test="${not empty message}">
+					<div class="error">${message}</div>
+				</c:if>
+				
                 <div class="row">
                     <div class="col-md-4">
                     <form:hidden path="id"/>
                     <form:hidden path="brand.brandName"/>
-                        <label> Select brand </label>
+                        <label> Select brand* </label>
                             <form:select path="brand.id" class="form-control">
                                 <form:options items="${brands}" />
                             </form:select>
@@ -20,7 +28,7 @@
                         <a class="btn btn-info" data-toggle="modal" data-target="#brand">Add new brand</a>
                     </div>
                     <div class="col-md-4">
-                        <label> Select model </label>
+                        <label> Select model* </label>
                             <form:select path="model.id" class="form-control">
                                 <form:options items="${models}" />
                             </form:select>
@@ -28,12 +36,12 @@
                         <a class="btn btn-info" data-toggle="modal" data-target="#model">Add new model</a>
                     </div>
                     <div class="col-md-4">
-                        <label> Year </label>
+                        <label> Year* </label>
                             <form:input path="year" type="text" name="year" id="Year" class="form-control" />
-                            <form:errors path="year" />
-                        <label>Price</label>
+                            <form:errors class="error" path="year" />
+                        <label>Price*</label>
                         <form:input path="price" class="form-control" type="number" />
-                        <form:errors path="price" />
+                        <form:errors class="error" path="price" />
                     </div>
                 </div>
                 <div class="row">

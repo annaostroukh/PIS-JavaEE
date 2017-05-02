@@ -93,10 +93,12 @@ public class MeetingController {
 		if (!result.hasErrors()) {
 			try {
 				meetingDAO.register(meeting);
+				System.out.println(meeting);
 				mod.setViewName("redirect:/manager/meetings");
 				return mod;
 			} catch (JpaSystemException e) {
 				e.printStackTrace();
+				System.out.println(e);
 				mod.addObject("error", e.getCause().getCause());
 				mod.setViewName(edit);
 				return mod;
@@ -138,7 +140,7 @@ public class MeetingController {
 		Map<Long,String> map_brands = new LinkedHashMap<Long,String>();
 		List<Client> brands = clientDAO.findAllOrderedByName();
 		for (int i = 0; i < brands.size(); i++) {
-			map_brands.put(brands.get(i).getId(), brands.get(i).getName());
+			map_brands.put(brands.get(i).getId(), brands.get(i).getName() + ' ' + brands.get(i).getSurname());
 		}
 		
 		return map_brands;

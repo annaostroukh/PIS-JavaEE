@@ -34,6 +34,7 @@ public class Meeting implements Serializable {
 	@Column(name = "place")
 	private String place;
 	
+	@NotNull(message = "Select a date")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date date;
 	
@@ -43,6 +44,7 @@ public class Meeting implements Serializable {
 	@Column(name = "results")
 	private String results;
 	
+	@NotNull(message = "Enter time")
 	@Column(name = "time")
 	private String time;
 	
@@ -53,7 +55,7 @@ public class Meeting implements Serializable {
 	private String meetingState;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "client")
+	@JoinColumn(name = "client", nullable = false)
 	private Client client;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)

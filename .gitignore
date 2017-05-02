@@ -1,3 +1,8 @@
 #Ignore folder mac
 .DS_Store
 *.DS_Store
+
+target/apache-tomee/*
+target/apache-tomee/
+target/apache-tomee/**
+target/apache-tomee/**/*

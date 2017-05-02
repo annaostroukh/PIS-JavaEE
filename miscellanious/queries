@@ -74,13 +74,13 @@ CREATE TABLE meeting (
 );
 
 INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
-VALUES ('1','admin@gmail.com','demo','demo','demo',true,'ROLE_ADMIN','123456789','2017-04-19');
+VALUES ('1','admin@gmail.com','demo','demo','demo',true,'ROLE_ADMIN','1234567899','2017-04-19');
 
 INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
-VALUES ('2','manager@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','123456789','2017-04-19');
+VALUES ('2','manager@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','1234567899','2017-04-19');
 
 INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
-VALUES ('4','manager2@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','123456789','2017-04-19');
+VALUES ('4','manager2@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','1234567899','2017-04-19');
 
 INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
 VALUES ('3','supervisor@gmail.com','demo','demo','demo',true,'ROLE_SUPERVISOR','123456789','2017-04-19');

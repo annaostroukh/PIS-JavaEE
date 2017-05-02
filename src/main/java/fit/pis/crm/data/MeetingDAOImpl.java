@@ -27,7 +27,12 @@ public class MeetingDAOImpl implements MeetingDAO {
 	
 	@Override
 	public Meeting findById(Long id) {
-		return em.find(Meeting.class, id);
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Meeting> criteria = cb.createQuery(Meeting.class);
+		Root<Meeting> meeting = criteria.from(Meeting.class);
+		criteria.select(meeting).where(cb.equal(meeting.get("id"), id));
+		System.out.println(em.createQuery(criteria).getSingleResult());
+		return em.createQuery(criteria).getSingleResult();
 	}
 
 	@Override
@@ -67,6 +72,7 @@ public class MeetingDAOImpl implements MeetingDAO {
 	@Override
 	public void deleteById(Long id) {
 		Meeting meeting = findById(id);
+		System.out.println(meeting);
 		em.remove(meeting);
 		
 	}

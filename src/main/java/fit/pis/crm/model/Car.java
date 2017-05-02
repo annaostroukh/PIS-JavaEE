@@ -30,13 +30,13 @@ public class Car implements Serializable {
     @Column(name = "car_id")
 	private Long id;
 	
-	@NotNull
+	@NotNull(message = "Brand cannot be empty")
 	@ManyToOne(fetch = FetchType.EAGER, cascade={CascadeType.REFRESH,CascadeType.MERGE, CascadeType.DETACH})
 	@JoinColumn(name = "brand")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Brand brand;
 	
-	@NotNull
+	@NotNull(message = "Model cannot be empty")
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "model")
 	private CarModel model;

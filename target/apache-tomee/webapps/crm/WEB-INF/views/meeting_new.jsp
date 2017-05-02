@@ -12,25 +12,26 @@
                 <div class=" col-md-8 col-md-offset-2">
                     <form:form class="form-add-user row" commandName="meeting" name="addMeetingForm" id="meeting_add" method="POST">
                     	<c:if test="${not empty error}">
-							<div>${error}</div>
-						</c:if>
-						<c:if test="${not empty message}">
-							<div>${message}</div>
-						</c:if>
+             		<div class="error-title">Following errors occurred:</div>
+					<div class="error">${error}</div>
+					</c:if>
+					<c:if test="${not empty message}">
+						<div class="error">${message}</div>
+					</c:if>
+				
                     	<form:hidden path="id"/>
 		                <div class="col-md-6">
-		                	<label> Title: </label>
+		                	<label> Title*: </label>
 		                   		<form:input path="title" type="text" id="title" name="title" class="form-control" placeholder="Title" />
-		                   		<form:errors path="title" />
-		                   	<label> Date: </label>
-		                        <form:input path="date" type="text" name="start-date" class="form-control" id="datepicker" />
-		                        <form:errors path="date" />
-		                	<label> Time: </label>
+		                   		<form:errors class="error" path="title" />
+		                   	<label> Date*: </label>
+		                        <form:input path="date" type="text" name="start-date" class="form-control" id="datepickerT" />
+		                        <form:errors class="error" path="date" />
+		                	<label> Time*: </label>
 		                   		<form:input path="time" type="text" id="time" name="time" class="form-control" value="10:00" placeholder="Time" />
-		                   		<form:errors path="time" />
+		                   		<form:errors class="error" path="time" />
 		                   	<label> Place: </label>
 		                   		<form:input path="place" type="text" id="place" name="place" class="form-control" placeholder="Place" />
-		                   		<form:errors path="place" />
 		                   	<button class="btn btn-primary btn-block" type="submit">Save</button>
 		                </div>
 		                <div class="col-md-6">
@@ -45,6 +46,11 @@
 		                	<label> Result: </label>
 		                        <form:input path="results" type="text" id="results" name="results" class="form-control" placeholder="Results" />
 		                </div>
+		                
+		                <form:hidden path="client.phoneNumber"/>
+		                <form:hidden path="client.name"/>
+		                <form:hidden path="client.surname"/>
+		                <form:hidden path="client.email"/>
 
 		            </form:form><!-- /form -->
                 </div>

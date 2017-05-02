@@ -26,7 +26,10 @@
      $( "#datepicker" ).datepicker({
     	 dateFormat: 'dd/mm/yy'
      });
-     $("#datepicker").datepicker('setDate', new Date());
+     $( "#datepickerT" ).datepicker({
+    	 dateFormat: 'dd/mm/yy'
+     });
+     $("#datepickerT").datepicker('setDate', new Date());
    });
 </script>
 	
