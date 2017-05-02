@@ -31,7 +31,7 @@
                     <form:errors class="error" path="username" />
                     <label> Surname*: </label>
                     	<form:input path="surname" type="text" id="surname" name="surname" class="form-control" placeholder="Surname" />
-                    <form:errors class="error" path="surname" />
+                    	<form:errors class="error" path="surname" />
                     <label> Phone Number*: </label>
                     	<form:input path="phoneNumber" type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone" />
                     <form:errors class="error" path="phoneNumber" />
@@ -40,14 +40,14 @@
                 </div>
                 <div class="col-md-4">
                     <label> Email*: </label>
-                    	<form:input path="email" type="email" name="email" id="Email" class="form-control" placeholder="Email" />
+                    	<form:input path="email" type="email" field="email" name="email" id="email" class="form-control" placeholder="Email" />
                     	<form:errors class="error" path="email" />
                     <label> Position*: </label>
-                        <form:select path="role" class="form-control" name="role">
+                        <form:select path="role" class="form-control" name="role" id="role">
                         	<form:option value="" label="- Select -"/>
                         	<form:options items="${role}" />
                         </form:select>
-                    <form:errors class="error" path="role" />
+                        <form:errors class="error" path="role" />
                 </div>
                 <div class="col-md-4">
                     <label> Start date*: </label>
@@ -65,27 +65,4 @@
             </form:form><!-- /form -->
         </div>
     </div>
-    <!--<script>
-			$("#user_add").validate({
-				rules : {
-					password : {
-						required : true,
-						minlength : 6,
-						maxlength : 12
-					},
-					confirmPassword : {
-						equalTo : "#password",
-						minlength : 6,
-						maxlength : 12
-					}
-				},
-				messages : {
-					password : {
-						required : "the password is required"
-					}
-				}
-
-			});
-	</script>  -->
- 
  <jsp:include page="templates/footer.jsp"></jsp:include>

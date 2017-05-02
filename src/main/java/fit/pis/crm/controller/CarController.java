@@ -163,5 +163,30 @@ public class CarController {
 		mod.setViewName("redirect:/admin/cars");
 		return mod;
 	}
+	
+	// Handle modal windows
+	@RequestMapping(value = "new/brand", method = RequestMethod.GET)
+	public String getModalBrand(Model mod)
+	{
+	  Brand newBrand = new Brand();
+	  mod.addAttribute("brand", newBrand);
+	  return "car_edit";
+	}
+	
+	@RequestMapping(value = "new/brand", method = RequestMethod.POST)
+	public String postModalBrand(@Valid @ModelAttribute("brand") Brand brand, BindingResult result, Model mod)
+	{
+		if (!result.hasErrors()) {
+			try {
+				brandDAO.update(brand);
+				return "redirect:/admin/cars/new";
+			} catch (UnexpectedRollbackException e) {
+				mod.addAttribute("error", e.getCause().getCause());
+				return "car_edit";
+			}
+		} else {
+			return "car_edit";
+		}
+	}
 
 }

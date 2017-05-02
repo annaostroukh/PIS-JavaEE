@@ -64,7 +64,7 @@
                                 </td>
                                 <td>
                                     <a href="<c:url value="/manager/meetings/edit/${meeting.id}" />" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="<c:url value="/manager/meetings/${meeting.id}" />" onClick="return confirm('sure?')" > <!-- TODO: Implement nice dialog window -->
+                                    <a href="<c:url value="/manager/meetings/${meeting.id}" />" onClick="return confirm('sure?')" >
 			                			<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
 			                		</a>
                                 </td>

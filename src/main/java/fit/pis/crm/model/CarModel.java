@@ -35,7 +35,8 @@ public class CarModel implements Serializable {
 	@JoinColumn(name = "brand")
 	private Brand brand;
 	
-	@OneToMany(targetEntity=Car.class,fetch = FetchType.EAGER, mappedBy = "model", cascade=CascadeType.ALL)
+	@OneToMany(targetEntity=Car.class,fetch = FetchType.EAGER, mappedBy = "model", 
+			cascade={CascadeType.REFRESH,CascadeType.MERGE}, orphanRemoval = true)
 	private Set<Car> cars = new HashSet<Car>();
 
 	public Set<Car> getCars() {

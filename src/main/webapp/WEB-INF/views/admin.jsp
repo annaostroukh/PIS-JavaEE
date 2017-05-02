@@ -71,7 +71,7 @@
 			                <td>
 			                	<a href="<c:url value="/admin/users/edit/${user.id}" />" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
 			                	<c:if test="${not empty user.id}">
-			                		<a href="<c:url value="/admin/users/${user.id}" />" onClick="return confirm('sure?')" > <!-- TODO: Implement nice dialog window -->
+			                		<a href="<c:url value="/admin/users/${user.id}" />" onClick="return confirm('sure?')" >
 			                			<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
 			                		</a>
 			                	</c:if>

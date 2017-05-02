@@ -71,7 +71,7 @@
 			                		<span class="glyphicon glyphicon-pencil"></span>
 			                	</a>
 			                	<c:if test="${not empty car.id}">
-			                	<a href="<c:url value="/admin/cars/${car.id}" />" onClick="return confirm('sure?')" > <!-- TODO: Implement nice dialog window -->
+			                	<a href="<c:url value="/admin/cars/${car.id}" />" onClick="return confirm('sure?')" > 
 			                		<span class="btn btn-sm btn-info delete"><span class="glyphicon glyphicon-trash"></span></span>
 			                	</a>
 			                	</c:if>
