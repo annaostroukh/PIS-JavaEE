@@ -80,3 +80,15 @@ h1{
 	margin-top: 10%;
 	background-color: rgba(238, 238, 238, 0.8);
 }
+
+.error{
+	color:red;
+	display: block;
+	margin-top: -20px;
+	margin-bottom: 20px
+}
+
+.error-title{
+	margin-bottom: 20px;
+	display: block;
+}

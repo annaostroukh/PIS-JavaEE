@@ -71,7 +71,7 @@ public class MeetingController {
 	@RequestMapping(value = "meetings/{id}", method = RequestMethod.GET)
 	public ModelAndView delete(@PathVariable Long id) {
 		ModelAndView mod = this.getModel();
-		userAccountDAO.deleteById(id);
+		meetingDAO.deleteById(id);
 		mod.setViewName("redirect:/manager/meetings");
 		return mod;
 	}

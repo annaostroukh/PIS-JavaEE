@@ -76,7 +76,7 @@ public class UserAcc implements Serializable {
 	@Column(name = "enabled")
 	private boolean enabled = true;
 	
-	@NotNull
+	@NotNull(message = "Select a position, please")
 	@Column(name = "role", length = 20)
 	private String role;
 	

@@ -10,7 +10,11 @@
 <script src="<c:url value="/resources/js/fullcalendar.js"/>"></script>
 <script>
   $(document).ready(function() {
-    $('#table').DataTable();
+    $('#table').DataTable({
+    	"paging":   false,
+        "ordering": false,
+        "info":     false
+    });
   });
   
   $(document).ready(function() {

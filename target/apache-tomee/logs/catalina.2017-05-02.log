@@ -1,0 +1,368 @@
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat (TomEE)/7.0.62 (1.7.2)
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          May 7 2015 17:14:55 UTC
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.62.0
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Mac OS X
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.12.3
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          x86_64
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_121-b13
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         /Users/olena/Documents/PIS-JavaEE/target/apache-tomee
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         /Users/olena/Documents/PIS-JavaEE/target/apache-tomee
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -XX:+HeapDumpOnOutOfMemoryError
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dorg.apache.catalina.STRICT_SERVLET_COMPLIANCE=false
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dopenejb.session.manager=org.apache.tomee.catalina.session.QuickSessionManager
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dtomee.remote.support=true
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dopenejb.system.apps=false
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/conf/logging.properties
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -javaagent:/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/lib/openejb-javaagent.jar
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/temp
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.endorsed.dirs=/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/endorsed
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=/Users/olena/Documents/PIS-JavaEE/target/apache-tomee
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=/Users/olena/Documents/PIS-JavaEE/target/apache-tomee
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.ext.dirs=/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/lib
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dorg.apache.tomcat.util.http.ServerCookie.ALLOW_HTTP_SEPARATORS_IN_V0=true
+трав. 02, 2017 1:07:23 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -ea
+трав. 02, 2017 1:07:23 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/olena/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+трав. 02, 2017 1:07:23 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+трав. 02, 2017 1:07:23 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+трав. 02, 2017 1:07:24 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'tomee.remote.support=true'
+трав. 02, 2017 1:07:24 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.jdbc.datasource-creator=org.apache.tomee.jdbc.TomEEDataSourceCreator'
+трав. 02, 2017 1:07:24 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+трав. 02, 2017 1:07:24 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: OpenEJB http://tomee.apache.org/
+трав. 02, 2017 1:07:24 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Startup: Tue May 02 13:07:24 CEST 2017
+трав. 02, 2017 1:07:24 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Copyright 1999-2013 (C) Apache OpenEJB Project, All Rights Reserved.
+трав. 02, 2017 1:07:24 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Version: 4.7.2
+трав. 02, 2017 1:07:24 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build date: 20150517
+трав. 02, 2017 1:07:24 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build time: 10:10
+трав. 02, 2017 1:07:24 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+трав. 02, 2017 1:07:24 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.home = /Users/olena/Documents/PIS-JavaEE/target/apache-tomee
+трав. 02, 2017 1:07:24 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.base = /Users/olena/Documents/PIS-JavaEE/target/apache-tomee
+трав. 02, 2017 1:07:24 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@4e41089d
+трав. 02, 2017 1:07:24 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Succeeded in installing singleton service
+трав. 02, 2017 1:07:24 PM org.apache.openejb.config.ConfigurationFactory init
+INFO: openejb configuration file is '/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/conf/tomee.xml'
+трав. 02, 2017 1:07:24 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Tomcat Security Service, type=SecurityService, provider-id=Tomcat Security Service)
+трав. 02, 2017 1:07:24 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+трав. 02, 2017 1:07:24 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.system.apps=false'
+трав. 02, 2017 1:07:24 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.deployments.classpath=false'
+трав. 02, 2017 1:07:24 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating TransactionManager(id=Default Transaction Manager)
+трав. 02, 2017 1:07:24 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating SecurityService(id=Tomcat Security Service)
+трав. 02, 2017 1:07:29 PM org.apache.openejb.server.SimpleServiceManager start
+INFO:   ** Bound Services **
+трав. 02, 2017 1:07:29 PM org.apache.openejb.server.SimpleServiceManager printRow
+INFO:   NAME                 IP              PORT  
+трав. 02, 2017 1:07:29 PM org.apache.openejb.server.SimpleServiceManager start
+INFO: -------
+трав. 02, 2017 1:07:29 PM org.apache.openejb.server.SimpleServiceManager start
+INFO: Ready!
+трав. 02, 2017 1:07:29 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 6193 ms
+трав. 02, 2017 1:07:29 PM org.apache.tomee.catalina.OpenEJBNamingContextListener bindResource
+INFO: Importing a Tomcat Resource with id 'UserDatabase' of type 'org.apache.catalina.UserDatabase'.
+трав. 02, 2017 1:07:29 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=UserDatabase)
+трав. 02, 2017 1:07:29 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+трав. 02, 2017 1:07:29 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat (TomEE)/7.0.62 (1.7.2)
+трав. 02, 2017 1:07:29 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive /Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm.war
+трав. 02, 2017 1:07:29 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /crm
+трав. 02, 2017 1:07:29 PM org.apache.openejb.util.JarExtractor extract
+INFO: Extracting jar: /Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm.war
+трав. 02, 2017 1:07:29 PM org.apache.openejb.util.JarExtractor extract
+INFO: Extracted path: /Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm
+трав. 02, 2017 1:07:29 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.session.manager=org.apache.tomee.catalina.session.QuickSessionManager'
+трав. 02, 2017 1:07:30 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar '/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar' contains offending class: javax.persistence.Entity. It will be ignored.
+трав. 02, 2017 1:07:30 PM org.apache.catalina.loader.WebappClassLoader validateJarFile
+INFO: validateJarFile(/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm/WEB-INF/lib/javaee-api-6.0-5.jar) - jar not loaded. See Servlet Spec 3.0, section 10.7.2. Offending class: javax/servlet/Servlet.class
+трав. 02, 2017 1:07:30 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar '/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.1.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+трав. 02, 2017 1:07:30 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: /Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm
+трав. 02, 2017 1:07:30 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=crm/jdbc/crmsystem, type=Resource, provider-id=Default JDBC Database)
+трав. 02, 2017 1:07:30 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=crm/jdbc/crmsystem)
+трав. 02, 2017 1:07:31 PM org.apache.openejb.config.AutoConfig deploy
+INFO: Configuring PersistenceUnit(name=crm-unit, provider=org.hibernate.jpa.HibernatePersistenceProvider)
+трав. 02, 2017 1:07:31 PM org.apache.openejb.config.AutoConfig configureImplicitDataSource
+WARNING: Adjusting InitialSize to 5 for crm/jdbc/crmsystemNonJta DataSource to avoid too much network bandwidth usage. If you want to keep it please define the DataSource explicitly.
+трав. 02, 2017 1:07:31 PM org.apache.openejb.config.AutoConfig logAutoCreateResource
+INFO: Auto-creating a Resource with id 'crm/jdbc/crmsystemNonJta' of type 'DataSource for 'crm-unit'.
+трав. 02, 2017 1:07:31 PM org.apache.openejb.config.AutoConfig deploy
+INFO: Configuring Service(id=crm/jdbc/crmsystemNonJta, type=Resource, provider-id=crm/jdbc/crmsystem)
+трав. 02, 2017 1:07:31 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=crm/jdbc/crmsystemNonJta)
+трав. 02, 2017 1:07:31 PM org.apache.openejb.config.AutoConfig setJtaDataSource
+INFO: Adjusting PersistenceUnit crm-unit <jta-data-source> to Resource ID 'crm/jdbc/crmsystem' from 'jdbc/crmsystem'
+трав. 02, 2017 1:07:31 PM org.apache.openejb.config.AutoConfig setNonJtaDataSource
+INFO: Adjusting PersistenceUnit crm-unit <non-jta-data-source> to Resource ID 'crm/jdbc/crmsystemNonJta' from 'null'
+трав. 02, 2017 1:07:31 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm" loaded.
+трав. 02, 2017 1:07:31 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: /Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm
+трав. 02, 2017 1:07:31 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [
+	name: crm-unit
+	...]
+трав. 02, 2017 1:07:31 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.2.10.Final}
+трав. 02, 2017 1:07:31 PM org.hibernate.cfg.Environment <clinit>
+INFO: HHH000206: hibernate.properties not found
+трав. 02, 2017 1:07:31 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+трав. 02, 2017 1:07:31 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+трав. 02, 2017 1:07:31 PM org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl useContextualLobCreation
+INFO: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+трав. 02, 2017 1:07:32 PM org.apache.openejb.assembler.classic.ReloadableEntityManagerFactory createDelegate
+INFO: PersistenceUnit(name=crm-unit, provider=org.hibernate.jpa.HibernatePersistenceProvider) - provider time 1438ms
+трав. 02, 2017 1:07:32 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@4e41089d
+трав. 02, 2017 1:07:32 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+трав. 02, 2017 1:07:32 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+трав. 02, 2017 1:07:32 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+трав. 02, 2017 1:07:32 PM org.springframework.data.jpa.repository.cdi.JpaRepositoryExtension <init>
+INFO: Activating CDI extension for Spring Data JPA repositories.
+трав. 02, 2017 1:07:32 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+трав. 02, 2017 1:07:32 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 105 ms.
+трав. 02, 2017 1:07:32 PM org.apache.openejb.assembler.classic.Assembler deployMBean
+INFO: Deployed MBean(openejb.user.mbeans:application=crm,group=org.apache.openejb.assembler.monitoring,name=JMXDeployer)
+трав. 02, 2017 1:07:32 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=/Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm)
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jstl/fmt_rt is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://jakarta.apache.org/taglibs/standard/permittedTaglibs is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jsp/jstl/xml is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jsp/jstl/fmt is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jsp/jstl/core is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jstl/core_rt is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jstl/sql_rt is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jstl/sql is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jsp/jstl/sql is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://jakarta.apache.org/taglibs/standard/scriptfree is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jsp/jstl/functions is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jstl/core is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jstl/fmt is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jstl/xml is already defined
+трав. 02, 2017 1:07:32 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://java.sun.com/jstl/xml_rt is already defined
+трав. 02, 2017 1:07:32 PM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization started
+трав. 02, 2017 1:07:33 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing Root WebApplicationContext: startup date [Tue May 02 13:07:33 CEST 2017]; root of context hierarchy
+трав. 02, 2017 1:07:33 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [META-INF/spring/applicationContext.xml]
+трав. 02, 2017 1:07:33 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [META-INF/spring/infrastructure.xml]
+трав. 02, 2017 1:07:33 PM org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor <init>
+INFO: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+трав. 02, 2017 1:07:33 PM org.springframework.orm.jpa.LocalEntityManagerFactoryBean createNativeEntityManagerFactory
+INFO: Building JPA EntityManagerFactory for persistence unit 'crm-unit'
+трав. 02, 2017 1:07:33 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [
+	name: crm-unit
+	...]
+трав. 02, 2017 1:07:33 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+трав. 02, 2017 1:07:33 PM org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl useContextualLobCreation
+INFO: HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+трав. 02, 2017 1:07:34 PM org.springframework.orm.jpa.AbstractEntityManagerFactoryBean buildNativeEntityManagerFactory
+INFO: Initialized JPA EntityManagerFactory for persistence unit 'crm-unit'
+трав. 02, 2017 1:07:34 PM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57f58c80, org.springframework.security.web.context.SecurityContextPersistenceFilter@159b90a7, org.springframework.security.web.header.HeaderWriterFilter@1e3e6e26, org.springframework.security.web.csrf.CsrfFilter@6ef7c0d5, org.springframework.security.web.authentication.logout.LogoutFilter@661f8360, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@764d3729, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e8176d7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34ff62fb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f3871c1, org.springframework.security.web.session.SessionManagementFilter@3e56ec3a, org.springframework.security.web.access.ExceptionTranslationFilter@3495c6b4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3041ba43]
+трав. 02, 2017 1:07:34 PM org.springframework.web.context.ContextLoader initWebApplicationContext
+INFO: Root WebApplicationContext: initialization completed in 1586 ms
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: FrameworkServlet 'spring': initialization started
+трав. 02, 2017 1:07:34 PM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing WebApplicationContext for namespace 'spring-servlet': startup date [Tue May 02 13:07:34 CEST 2017]; parent: Root WebApplicationContext
+трав. 02, 2017 1:07:34 PM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from ServletContext resource [/WEB-INF/spring-servlet.xml]
+трав. 02, 2017 1:07:34 PM org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor <init>
+INFO: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/cars/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.CarController.delete(java.lang.Long)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/cars/edit/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.CarController.edit(java.lang.Long)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/cars],methods=[GET]}" onto public java.lang.String fit.pis.crm.controller.CarController.showAllCars(org.springframework.ui.Model)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/cars/new],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.CarController.newCarGet()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/cars/new],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.CarController.newCarPost(fit.pis.crm.model.Car,org.springframework.validation.BindingResult)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/cars/edit/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.CarController.updateUserAccount(fit.pis.crm.model.Car,org.springframework.validation.BindingResult)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/supervisor/clients/edit/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.ClientController.update(fit.pis.crm.model.Client,org.springframework.validation.BindingResult)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/supervisor/clients/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.ClientController.delete(java.lang.Long)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/supervisor/clients/edit/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.ClientController.edit(java.lang.Long)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/supervisor/dashboard],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.ClientController.showDashboard()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/supervisor/clients],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.ClientController.showAllClients()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/supervisor/clients/new],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.ClientController.newClientGet()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/supervisor/clients/new],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.ClientController.newClientPost(fit.pis.crm.model.Client,org.springframework.validation.BindingResult)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[ || / || /login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.LoginController.loginPage(java.lang.String,java.lang.String)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/logout],methods=[GET]}" onto public java.lang.String fit.pis.crm.controller.LoginController.logoutPage(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/403],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.LoginController.accesssDenied(java.security.Principal)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.LoginController.adminPage()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/manager],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.LoginController.managerPage()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/supervisor],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.LoginController.supervisorPage()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/manager/meetings/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.MeetingController.delete(java.lang.Long)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/manager/meetings/edit/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.MeetingController.edit(java.lang.Long)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/manager/meetings],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.MeetingController.showAllMeetings()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/manager/meetings/new],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.MeetingController.newMeetingGet()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/manager/meetings/new],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.MeetingController.newMeetingPost(fit.pis.crm.model.Meeting,org.springframework.validation.BindingResult)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/manager/meetings/edit/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.MeetingController.updateMeeting(fit.pis.crm.model.Meeting,org.springframework.validation.BindingResult)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/users/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.UserAccController.delete(java.lang.Long)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/users/edit/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.UserAccController.edit(java.lang.Long)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/users/edit/{id}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.UserAccController.updateUserAccount(fit.pis.crm.model.UserAcc,org.springframework.validation.BindingResult)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/users],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.UserAccController.showAllUsers()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/users/new],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.UserAccController.newUserGet()
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/users/new],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView fit.pis.crm.controller.UserAccController.newUserPost(fit.pis.crm.model.UserAcc,org.springframework.validation.BindingResult)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/profile || /manager/profile || /supervisor/profile],methods=[GET]}" onto public java.lang.String fit.pis.crm.controller.UserAccController.displayCurrentUserProfile(org.springframework.ui.Model)
+трав. 02, 2017 1:07:34 PM org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry register
+INFO: Mapped "{[/admin/profile || /manager/profile || /supervisor/profile],methods=[POST]}" onto public java.lang.String fit.pis.crm.controller.UserAccController.updateProfile(fit.pis.crm.model.UserAcc,org.springframework.validation.BindingResult,org.springframework.ui.Model)
+трав. 02, 2017 1:07:35 PM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
+INFO: Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Tue May 02 13:07:34 CEST 2017]; parent: Root WebApplicationContext
+трав. 02, 2017 1:07:35 PM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
+INFO: Looking for @ControllerAdvice: WebApplicationContext for namespace 'spring-servlet': startup date [Tue May 02 13:07:34 CEST 2017]; parent: Root WebApplicationContext
+трав. 02, 2017 1:07:35 PM org.springframework.web.servlet.handler.AbstractUrlHandlerMapping registerHandler
+INFO: Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+трав. 02, 2017 1:07:35 PM org.springframework.web.servlet.handler.AbstractUrlHandlerMapping registerHandler
+INFO: Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+трав. 02, 2017 1:07:35 PM org.springframework.web.servlet.FrameworkServlet initServletBean
+INFO: FrameworkServlet 'spring': initialization completed in 777 ms
+трав. 02, 2017 1:07:35 PM org.apache.catalina.startup.HostConfig deployWAR
+SEVERE: Error deploying web application archive /Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm.war
+org.apache.webbeans.exception.WebBeansException: Class not found exception in creating instance with class : org.apache.webbeans.web.failover.DefaultOwbFailOverService
+	at org.apache.webbeans.config.WebBeansContext.get(WebBeansContext.java:366)
+	at org.apache.webbeans.config.WebBeansContext.doServiceLoader(WebBeansContext.java:226)
+	at org.apache.webbeans.config.WebBeansContext.getService(WebBeansContext.java:194)
+	at org.apache.openejb.server.httpd.BeginWebBeansListener.<init>(BeginWebBeansListener.java:66)
+	at org.apache.tomee.catalina.TomcatWebAppBuilder.afterStart(TomcatWebAppBuilder.java:1694)
+	at org.apache.tomee.catalina.GlobalListenerSupport.lifecycleEvent(GlobalListenerSupport.java:116)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:402)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:168)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployWAR(HostConfig.java:1095)
+	at org.apache.catalina.startup.HostConfig$DeployWar.run(HostConfig.java:1930)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassNotFoundException: Class with name: org.apache.webbeans.web.failover.DefaultOwbFailOverService is not found in the system
+	... 20 more
+
+трав. 02, 2017 1:07:35 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deployment of web application archive /Users/olena/Documents/PIS-JavaEE/target/apache-tomee/webapps/crm.war has finished in 5,881 ms
+трав. 02, 2017 1:07:35 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+трав. 02, 2017 1:07:35 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+трав. 02, 2017 1:07:35 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 5954 ms
+трав. 02, 2017 1:07:39 PM org.hibernate.hql.internal.QueryTranslatorFactoryInitiator initiateService
+INFO: HHH000397: Using ASTQueryTranslatorFactory

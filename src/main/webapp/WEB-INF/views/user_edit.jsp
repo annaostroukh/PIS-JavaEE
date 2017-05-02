@@ -16,50 +16,56 @@
 					</c:when>
 				</c:choose>
              	<c:if test="${not empty error}">
-					<div>${error}</div>
+             		<div class="error-title">Following errors occurred:</div>
+					<div class="error">${error}</div>
 				</c:if>
 				<c:if test="${not empty message}">
-					<div>${message}</div>
+					<div class="error">${message}</div>
 				</c:if>
+					
                 <div class="col-md-4">
-                    <label> Name: </label>
+                    <label> Name*: </label>
                    		<form:input path="username" type="text" id="name" name="name" class="form-control" placeholder="Name" />
                    	<form:hidden path="id"/>
 					<form:hidden path="enabled" />
-                    <form:errors cssErrorClass="form-control error" path="username" />
-                    <label> Surname: </label>
+                    <form:errors class="error" path="username" />
+                    <label> Surname*: </label>
                     	<form:input path="surname" type="text" id="surname" name="surname" class="form-control" placeholder="Surname" />
-                    <form:errors path="surname" />
-                    <label> Phone Number: </label>
+                    <form:errors class="error" path="surname" />
+                    <label> Phone Number*: </label>
                     	<form:input path="phoneNumber" type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone" />
-                    <form:errors path="phoneNumber" />
+                    <form:errors class="error" path="phoneNumber" />
                     <br>
                     <button class="btn btn-primary btn-block" type="submit">Save</button>
                 </div>
                 <div class="col-md-4">
-                    <label> Email: </label>
+                    <label> Email*: </label>
                     	<form:input path="email" type="email" name="email" id="Email" class="form-control" placeholder="Email" />
-                    <label> Position: </label>
+                    	<form:errors class="error" path="email" />
+                    <label> Position*: </label>
                         <form:select path="role" class="form-control" name="role">
                         	<form:option value="" label="- Select -"/>
                         	<form:options items="${role}" />
                         </form:select>
+                    <form:errors class="error" path="role" />
                 </div>
                 <div class="col-md-4">
-                    <label> Start date: </label>
+                    <label> Start date*: </label>
                         <form:input path="date" type="text" name="start-date" class="form-control" id="datepicker" />
-                    <form:errors path="date" />
+                    <form:errors class="error" path="date" />
                     </br>
                     <form:input path="password" type="password" id="password" class="form-control" placeholder="Password" />
-                    <form:errors path="password" />
+                    <form:errors class="error" path="password" />
+                    
                     <form:input path="confirmPassword" type="password" id="confirmPassword" class="form-control" placeholder="Repeat password" />
-                    <form:errors path="confirmPassword" />
+                    <form:errors class="error" path="confirmPassword" />
+	                    
                     <!--  <a class="btn btn-info" data-toggle="modal" data-target="#pass">Change password</a> -->
                 </div>
             </form:form><!-- /form -->
         </div>
     </div>
-    <script>
+    <!--<script>
 			$("#user_add").validate({
 				rules : {
 					password : {
@@ -80,6 +86,6 @@
 				}
 
 			});
-	</script>
+	</script>  -->
  
  <jsp:include page="templates/footer.jsp"></jsp:include>
