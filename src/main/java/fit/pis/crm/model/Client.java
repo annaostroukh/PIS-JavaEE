@@ -63,7 +63,7 @@ public class Client implements Serializable{
 	@Column(name = "status")
 	private String status;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL, 
+	@OneToMany(fetch = FetchType.EAGER, cascade={CascadeType.REFRESH,CascadeType.MERGE}, orphanRemoval = true,
 			mappedBy = "client")
 	private List<Meeting> meetings = new ArrayList<>();
 	
