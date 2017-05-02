@@ -65,6 +65,7 @@ public class MeetingDAOImpl implements MeetingDAO {
 
 	@Override
 	public void register(Meeting meeting) {
+		System.out.println(meeting);
 		em.persist(meeting);
 		
 	}

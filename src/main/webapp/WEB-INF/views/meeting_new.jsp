@@ -43,7 +43,7 @@
 		                	<label> Result: </label>
 		                        <form:input path="results" type="text" id="results" name="results" class="form-control" placeholder="Results" />
 		                </div>
-		                
+		                <form:hidden path="id"/>
 		                <form:hidden path="client.phoneNumber"/>
 		                <form:hidden path="client.name"/>
 		                <form:hidden path="client.surname"/>

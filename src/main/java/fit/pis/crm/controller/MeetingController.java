@@ -92,6 +92,7 @@ public class MeetingController {
 		ModelAndView mod = this.getModel();
 		System.out.println("client "+ meeting.getClient());
 		System.out.println("manager "+meeting.getManager());
+		
 		if (!result.hasErrors()) {
 			try {
 				meetingDAO.register(meeting);
@@ -100,6 +101,7 @@ public class MeetingController {
 				return mod;
 			} catch (JpaSystemException e) {
 				e.printStackTrace();
+				System.out.println("catched error");
 				System.out.println(e);
 				mod.addObject("error", e.getCause().getCause());
 				mod.setViewName(edit);
