@@ -3,7 +3,6 @@ package fit.pis.crm.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -27,7 +27,7 @@ public class Meeting implements Serializable {
     @Column(name = "meeting_id")
 	private Long id;
 	
-	@NotNull(message = "Title cannot be empty")
+	@NotEmpty(message = "Title cannot be empty")
 	@Column(name = "title")
 	private String title;
 	
@@ -44,7 +44,7 @@ public class Meeting implements Serializable {
 	@Column(name = "results")
 	private String results;
 	
-	@NotNull(message = "Enter time")
+	@NotEmpty(message = "Enter time")
 	@Column(name = "time")
 	private String time;
 	
@@ -54,6 +54,7 @@ public class Meeting implements Serializable {
 	@Column(name = "meeting_state")
 	private String meetingState;
 	
+	//@NotNull(message = "Select client")
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "client", nullable = false)
 	private Client client;
