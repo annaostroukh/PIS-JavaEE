@@ -26,14 +26,14 @@
 		                        <form:input path="date" type="text" name="start-date" class="form-control" id="datepickerT" />
 		                        <form:errors class="error" path="date" />
 		                	<label> Time*: </label>
-		                   		<form:input path="time" type="text" id="time" name="time" class="form-control" placeholder="10:00" />
+		                   		<form:input path="time" type="time" id="time" name="time" class="form-control" placeholder="10:00" />
 		                   		<form:errors class="error" path="time" />
 		                   	<label> Place: </label>
 		                   		<form:input path="place" type="text" id="place" name="place" class="form-control" placeholder="Place" />
 		                   	<button class="btn btn-primary btn-block" type="submit">Save</button>
 		                </div>
 		                <div class="col-md-6">
-		                	<label> Client: </label>
+		                	<label> Client*: </label>
 		                        <form:select path="client.id" class="form-control" name="clients">
 		           					<form:options items="${clients}" />
 		                        </form:select>
