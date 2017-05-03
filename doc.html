@@ -15,7 +15,8 @@
      podle pou¾itého editoru -->
 
 <!-- Nahraïte prosím názvem tématu -->
-<h1>Téma projektu</h1>
+<h1>Téma projektu:</h1>
+<h2>CRM system pro obchod s auty</h2>
 
 <!-- Jména autorù a jejich èinnost -->
 <dl>
@@ -26,13 +27,14 @@
 	</dd>
 	<dd>Anna Ostroukh
 	    <a href="mailto:xostro00@stud.fit.vutbr.cz">xostro00@stud.fit.vutbr.cz</a> - 
-		databázový subsystém, ...
+		databázový systém, modules: login, administrator, supervisor
 	</dd>
 </dl>
 
 <!-- u¾ivatelské úèty -->
 <h2>U¾ivatelé systému pro testování</h2>
-<p>Uveïte prosím existující zástupce <strong>v¹ech rolí u¾ivatelù</strong>.</p>
+<p>Pro testovani systemy je nutne na zacatku vytvorit tabulky v databazi. Pro tento ucel muzete pouzit skript v adresari projektu src/main/resources/META-INF/import.sql</p>
+<p>Tento skript taky vytvori uzivatelu s ruznymi roli pro testovani:</p>
 <table>
 <tbody><tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
 <tr><td>admin@gmail.com</td><td>demo</td><td>Administrátor</td></tr>
@@ -40,9 +42,27 @@
 <tr><td>supervisor@gmail.com</td><td>demo</td><td>Supervisor</td></tr>
 </tbody></table>
 
+<h2>Pouzite technologie</h2>
+<p>Pro projekt pouzite nasledujici technologie:</p>
+<ul>
+	<li>Spring MVC</li>
+	<li>Spring Security Module (Autorizace s ruznymi roly uzivatelu)</li>
+	<li>Hibernate ORM (JPA provider)</li>
+	<li>Maven</li>
+	<li>MySQL database</li>
+	<li>TomEE Plume</li>
+</ul>
+
 <!-- vy¾adované knihovny i s verzemi, pouze pro Java EE -->
 <h2>Vy¾adované knihovny</h2>
-
-
+<p>Pro spusteni webove aplikace je treba do souboru aplikacniho serveru /lib pridat knihovny Hibernate http://hibernate.org/orm/:</p>
+<ul>
+	<li>antlr-2.7.7.jar</li>
+	<li>dom4j-1.6.1.jar</li>
+	<li>hibernate-core-5.2.10.Final.jar</li>
+	<li>javassist-3.20.0-GA.jar</li>
+	<li>jboss-logging-3.3.0.Final.jar</li>
+</ul>
+<p>Ostatni potrebne pro beh knihovny nainstaluje Maven</p>
 
 </body></html>

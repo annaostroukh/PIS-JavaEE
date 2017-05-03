@@ -74,16 +74,16 @@ CREATE TABLE meeting (
 );
 
 INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
-VALUES ('1','admin@gmail.com','demo','demo','demo',true,'ROLE_ADMIN','123','2017-04-19');
+VALUES ('1','admin@gmail.com','demo','demo','demo',true,'ROLE_ADMIN','123456789','2017-04-19');
 
 INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
-VALUES ('2','manager@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','123','2017-04-19');
+VALUES ('2','manager@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','123456789','2017-04-19');
 
 INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
-VALUES ('4','manager2@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','123','2017-04-19');
+VALUES ('4','manager2@gmail.com','demo','demo','demo',true,'ROLE_MANAGER','123456789','2017-04-19');
 
 INSERT INTO useraccount(user_id,email,username,surname,password,enabled,role,phone_number,date)
-VALUES ('3','supervisor@gmail.com','demo','demo','demo',true,'ROLE_SUPERVISOR','123','2017-04-19');
+VALUES ('3','supervisor@gmail.com','demo','demo','demo',true,'ROLE_SUPERVISOR','123456789','2017-04-19');
 
 
 INSERT INTO brand(brand_id,brand_name)
@@ -140,14 +140,14 @@ VALUES ('2', '2');
 
 
 INSERT INTO meeting(meeting_id,title,place,date,description,results,time,contract_state,meeting_state,manager,client)
-VALUES ('1', 'Skoda meeting','Grand Hotel','2017-04-19','negotiations','signed contract','10:00','signed','approved','4','1');
+VALUES ('1', 'Skoda meeting','Grand Hotel','2017-05-10','negotiations','signed contract','10:00','signed','approved','4','1');
 
 INSERT INTO meeting(meeting_id,title,place,date,description,results,time,contract_state,meeting_state,manager,client)
-VALUES ('2', 'Ferrari meeting','Grand Palace','2017-04-25','negotiations','signed contract','11:00','signed','approved','2','1');
+VALUES ('2', 'Ferrari meeting','Grand Palace','2017-05-10','negotiations','signed contract','11:00','signed','approved','2','1');
 
 
 INSERT INTO meeting(meeting_id,title,place,date,description,results,time,contract_state,meeting_state,manager,client)
-VALUES ('3', 'Conference meeting','Hotel','2017-04-30','negotiations','signed contract','10:00','signed','approved','4','2');
+VALUES ('3', 'Conference meeting','Hotel','2017-05-15','negotiations','signed contract','10:00','signed','approved','4','2');
 
 INSERT INTO meeting(meeting_id,title,place,date,description,results,time,contract_state,meeting_state,manager,client)
-VALUES ('4', 'Ferrari','Grand Palace','2017-04-27','negotiations','signed contract','11:00','signed','approved','2','2');
+VALUES ('4', 'Ferrari','Grand Palace','2017-05-15','negotiations','signed contract','11:00','signed','approved','2','2');

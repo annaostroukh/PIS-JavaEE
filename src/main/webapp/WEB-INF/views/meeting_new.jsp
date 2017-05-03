@@ -33,10 +33,11 @@
 		                   	<button class="btn btn-primary btn-block" type="submit">Save</button>
 		                </div>
 		                <div class="col-md-6">
-		                	<label> Client*: </label>
-		                        <form:select path="client.id" class="form-control" name="clients">
+		                	<label> Client: </label>
+		                        <form:select path="client.id" class="form-control" name="clients" multiple="false">
 		           					<form:options items="${clients}" />
 		                        </form:select>
+		                        <form:errors class="error" path="client.id" />
 		                    <label> Description: </label>
 		                   		<form:input path="description" type="text" id="description" name="description" class="form-control" placeholder="Description" />
 
@@ -44,11 +45,7 @@
 		                        <form:input path="results" type="text" id="results" name="results" class="form-control" placeholder="Results" />
 		                </div>
 		                <form:hidden path="id"/>
-		                <form:hidden path="client.phoneNumber"/>
-		                <form:hidden path="client.name"/>
-		                <form:hidden path="client.surname"/>
-		                <form:hidden path="client.email"/>
-		                <form:hidden path="manager"/>
+		                <form:hidden path="manager.id" value="${currentUser.id}"/>
 
 		            </form:form><!-- /form -->
                 </div>

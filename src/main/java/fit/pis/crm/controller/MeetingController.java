@@ -79,30 +79,22 @@ public class MeetingController {
 	@RequestMapping(value = "meetings/new", method = RequestMethod.GET)
 	public ModelAndView newMeetingGet() {
 		ModelAndView mod = this.getModel();
-		mod.addObject("clients", clientDAO.findAllForManager(this.getCurrentUser()));
-		// mod.addObject("clients", getClients());
 		mod.setViewName(edit);
 		Meeting newMeeting = new Meeting ();
+		mod.addObject("clients", getClients());
 		mod.addObject("meeting", newMeeting);
-		
 		return mod;
 	}
 	@RequestMapping(value = "meetings/new", method = RequestMethod.POST)
 	public ModelAndView newMeetingPost(@Valid @ModelAttribute("meeting") Meeting meeting, BindingResult result) {
 		ModelAndView mod = this.getModel();
-		System.out.println("client "+ meeting.getClient());
-		System.out.println("manager "+meeting.getManager());
-		
 		if (!result.hasErrors()) {
 			try {
 				meetingDAO.register(meeting);
-				System.out.println(meeting);
 				mod.setViewName("redirect:/manager/meetings");
 				return mod;
 			} catch (JpaSystemException e) {
 				e.printStackTrace();
-				System.out.println("catched error");
-				System.out.println(e);
 				mod.addObject("error", e.getCause().getCause());
 				mod.setViewName(edit);
 				return mod;
@@ -141,13 +133,13 @@ public class MeetingController {
 	}
 	
 	private Map<Long,String> getClients() {
-		Map<Long,String> map_brands = new LinkedHashMap<Long,String>();
-		List<Client> brands = clientDAO.findAllOrderedByName();
-		for (int i = 0; i < brands.size(); i++) {
-			map_brands.put(brands.get(i).getId(), brands.get(i).getName() + ' ' + brands.get(i).getSurname());
+		Map<Long,String> map_clients = new LinkedHashMap<Long,String>();
+		List<Client> clients = clientDAO.findAllForManager(this.getCurrentUser());
+		for (int i = 0; i < clients.size(); i++) {
+			map_clients.put(clients.get(i).getId(), clients.get(i).getName() + " " + clients.get(i).getSurname());
 		}
 		
-		return map_brands;
+		return map_clients;
 	}
 	
 	@ModelAttribute("clients")
