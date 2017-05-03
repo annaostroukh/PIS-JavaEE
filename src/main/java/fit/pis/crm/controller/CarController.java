@@ -3,6 +3,7 @@ package fit.pis.crm.controller;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fit.pis.crm.data.BrandDAO;
@@ -85,19 +87,45 @@ public class CarController {
  		return "cars";
 	}
 	
-	@RequestMapping(value = "new", method = RequestMethod.GET)
-	public ModelAndView newCarGet() {
+	@RequestMapping(value = "/new", method = RequestMethod.GET)
+	public ModelAndView newCarGet(@Valid @ModelAttribute("newBrand") Brand brand, BindingResult resultBrand,
+			@Valid @ModelAttribute("newModel") CarModel model, BindingResult resultModel) {
 		ModelAndView mod = this.getModel();
 		mod.setViewName(edit);
-		Car newCar = new Car ();
+		Car newCar = new Car();
+		Brand newBrand = new Brand();
+		CarModel newModel = new CarModel();
+		mod.addObject("newModel", newModel);
+		mod.addObject("newBrand", newBrand);
 		mod.addObject("models", getModels());
 		mod.addObject("brands", getBrands());
 		mod.addObject("car", newCar);
 		
+		if (!resultBrand.hasErrors()) {
+			try {
+				brandDAO.register(brand);
+				mod.setViewName("redirect:/admin/cars/new");
+			} catch (UnexpectedRollbackException e) {
+				mod.addObject("error", e.getCause().getCause());
+				mod.setViewName("redirect:/admin/cars/new");
+			}
+		} else if (!resultModel.hasErrors()) {
+			try {
+				carModelDAO.register(model);
+				mod.setViewName("redirect:/admin/cars/new");
+			} catch (UnexpectedRollbackException e) {
+				mod.addObject("error", e.getCause().getCause());
+				mod.setViewName("redirect:/admin/cars/new");
+			}
+		} else {
+			mod.setViewName(edit);
+			return mod;
+		}
+		
 		return mod;
 	}
 	
-	@RequestMapping(value = "new", method = RequestMethod.POST)
+	@RequestMapping(value = "/new", method = RequestMethod.POST)
 	public ModelAndView newCarPost(@Valid @ModelAttribute("car") Car car, BindingResult result) {
 		ModelAndView mod = this.getModel();
 		if (!result.hasErrors()) {
@@ -165,28 +193,14 @@ public class CarController {
 	}
 	
 	// Handle modal windows
-	@RequestMapping(value = "new/brand", method = RequestMethod.GET)
-	public String getModalBrand(Model mod)
-	{
-	  Brand newBrand = new Brand();
-	  mod.addAttribute("brand", newBrand);
-	  return "car_edit";
+	@RequestMapping(params = "form_brand") 
+    public String addBrand() {
+		return "redirect:/admin/cars/new";
 	}
 	
-	@RequestMapping(value = "new/brand", method = RequestMethod.POST)
-	public String postModalBrand(@Valid @ModelAttribute("brand") Brand brand, BindingResult result, Model mod)
-	{
-		if (!result.hasErrors()) {
-			try {
-				brandDAO.update(brand);
-				return "redirect:/admin/cars/new";
-			} catch (UnexpectedRollbackException e) {
-				mod.addAttribute("error", e.getCause().getCause());
-				return "car_edit";
-			}
-		} else {
-			return "car_edit";
-		}
+	@RequestMapping(params = "form_model") 
+    public String addModel() {
+		return "redirect:/admin/cars/new";
 	}
 
 }

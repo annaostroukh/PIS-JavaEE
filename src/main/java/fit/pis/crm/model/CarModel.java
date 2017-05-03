@@ -31,8 +31,8 @@ public class CarModel implements Serializable {
 	private String modelName;
 	
 	@NotNull
-	@ManyToOne(targetEntity=Brand.class,fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "brand")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "brand", nullable = false)
 	private Brand brand;
 	
 	@OneToMany(targetEntity=Car.class,fetch = FetchType.EAGER, mappedBy = "model", 

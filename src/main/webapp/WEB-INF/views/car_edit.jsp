@@ -26,7 +26,7 @@
                             </form:select>
                             <form:errors class="error" path="brand.id" />
                         <label> Or </label><br>
-                       	<a class="btn btn-info" data-toggle="modal">Add new brand</a>
+                       	<a class="btn btn-info" id="brand-new" data-toggle="modal" data-target="#brand-modal">Add new brand</a>
                     </div>
                     <div class="col-md-4">
                         <label> Select model* </label>
@@ -35,7 +35,7 @@
                             </form:select>
                             <form:errors class="error" path="model.id" />
                         <label> Or </label><br>
-                        <a class="btn btn-info" data-toggle="modal">Add new model</a>
+                        <a class="btn btn-info" data-toggle="modal" data-target="#model-modal">Add new model</a>
                     </div>
                     <div class="col-md-4">
                         <label> Year* </label>
@@ -64,27 +64,51 @@
             </form:form><!-- /form -->
         </div>
     </div>
-
-   <!--  <div class="modal fade" id="model" tabindex="-1" role="dialog" aria-labelledby="model">
+    
+     <div class="modal fade" id="brand-modal" tabindex="-1" role="dialog" aria-labelledby="brand">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form>
+                <form action="?form_brand" id="form-brand">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add new brand</h4>
+                    </div>
+                    <div class="modal-body">
+                     <form:hidden path="newBrand.id"/>
+                        <form:input type="text" path="newBrand.brandName" id="brand" class="form-control" placeholder="Brand name" />
+                        <form:errors class="error" path="newBrand.brandName" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="model-modal" tabindex="-1" role="dialog" aria-labelledby="model">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="?form_model" id="form-model">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Add new model</h4>
                     </div>
                     <div class="modal-body">
-                        <input type="text" id="new-model" class="form-control" placeholder="Model name">
+                    	<form:hidden path="newModel.id"/>
+                    	<form:select path="newModel.brand.id" class="form-control" id="brand">
+                                <form:options items="${brands}" />
+                            </form:select>
+                        <form:input path="newModel.modelName" type="text" id="new-model" class="form-control" placeholder="Model name" />
+                    	<form:errors class="error" path="newModel.modelName" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div> 
-
-      -->
-
+    </div>
 <jsp:include page="templates/footer.jsp"></jsp:include>

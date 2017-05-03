@@ -16,6 +16,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="brand")
@@ -28,7 +29,7 @@ public class Brand implements Serializable {
 	@GeneratedValue
 	private Long id;
 
-	@NotNull(message="Name cannot be empty")
+	@NotEmpty(message="Name cannot be empty")
 	@Column(name="brand_name")
 	private String brandName;
 	
@@ -36,8 +37,7 @@ public class Brand implements Serializable {
 			cascade={CascadeType.REFRESH,CascadeType.MERGE}, orphanRemoval = true)
 	private Set<Car> cars = new HashSet<Car>();
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "brand", 
-			cascade={CascadeType.REFRESH,CascadeType.MERGE}, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "brand", orphanRemoval = true)
 	private Set<CarModel> models = new HashSet<CarModel>();
 	
 	public String getBrandName() {

@@ -31,14 +31,10 @@
      });
      $("#datepickerT").datepicker('setDate', new Date());
    });
-   
-	function loadModalBrand() {
-		window.open("new/brand", 'window');
-	}
 </script>
 	
 </head>
-<body onload="loadModalBrand()">
+<body>
     <nav class="navbar bg-main navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
