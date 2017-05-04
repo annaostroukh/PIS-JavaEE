@@ -97,9 +97,8 @@ public class MeetingDAOImpl implements MeetingDAO {
 	}
 
 	@Override
-	public List<Meeting> findToday(String date) {
+	public List<Meeting> findToday(Date date) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
-		System.out.println("in");
 		CriteriaQuery<Meeting> criteria = cb.createQuery(Meeting.class);
 		Root<Meeting> meeting = criteria.from(Meeting.class);
 		criteria.select(meeting).where(cb.equal(meeting.get("date"), date));

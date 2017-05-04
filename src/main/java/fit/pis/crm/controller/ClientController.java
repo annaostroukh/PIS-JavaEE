@@ -96,28 +96,33 @@ public class ClientController {
  		ModelAndView mod = this.getModel();
  		mod.setViewName(dashboard);
  		//Managers with meetings today
-
- 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
  		Calendar cal = Calendar.getInstance();
- 		Date todayDat = cal.getTime();
- 		System.out.println("td " + todayDat);
- 		String today = dateFormat.format(todayDat);
- 		System.out.println("t " + today);
- 		//List<Meeting> meetingsT = meetingDAO.findToday(today);
- 		//Integer ms = meetingsT.size();
- 		//System.out.println("ms " + ms);
- 		//mod.addObject(ms);
- 		//clients
+ 		Date todayDat = normalize(cal);
+ 		List<Meeting> meetingsT = meetingDAO.findToday(todayDat);
+ 		Integer ms = meetingsT.size();
+ 		mod.addObject("ms", meetingDAO.findToday(todayDat).size());
+ 		//clients	
  		mod.addObject("clients", clientDAO.findAllWithoutManager());
  		mod.addObject("lc", clientDAO.calculateAllWithoutManager());
  		// all managers
  		mod.addObject("managers", getManagers());
  		// max manager
- 		// mod.addObject("maxManager", userAccountDAO.findManagerWithMaxLoad("ROLE_MANAGER"));
- 		// mod.addObject("maxMeeting", userAccountDAO.findMaxManagerMeetings());
+ 		mod.addObject("mostBusyManager", userAccountDAO.findManagerWithMaxLoad("ROLE_MANAGER"));
+ 		mod.addObject("maxMeeting", userAccountDAO.findMaxManagerMeetings());
+ 		// min manager
+ 	 	mod.addObject("lessBusyManager", userAccountDAO.findManagerWithMinLoad());
+ 	 	mod.addObject("minMeeting", userAccountDAO.findMinManagerMeetings());
  		
  		return mod;
 	}
+	
+	private Date normalize(Calendar cal) {
+        cal.set(Calendar.MILLISECOND, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        return cal.getTime();
+    }
 	
 	@RequestMapping(value = "clients", method = RequestMethod.GET)
 	public ModelAndView showAllClients() {

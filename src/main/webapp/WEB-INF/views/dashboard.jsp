@@ -20,24 +20,25 @@
         		<div class="col-md-3">
         			<h4> Most busy manager: </h4>
         			<div class="jumbotron text-center">
-        				
-        				meetings
-        				<b>${maxManager}</b>
+        				<h1>${maxMeeting}</h1>
+        				meetings<br>
+        				<b>${mostBusyManager.username}</b>
         			</div>
         		</div>
         		<div class="col-md-3">
         			<h4> Less busy manager: </h4>
         			<div class="jumbotron text-center">
-        				<h1>2</h1>
-        				meetings this week
-        				<b>Name Surname</b>
+        				<h1>${minMeeting}</h1>
+        				meetings<br>
+        				<b>${lessBusyManager.username}</b>
         			</div>
         		</div>
         		<div class="col-md-3">
         			<h4> Today: </h4>
         			<div class="jumbotron text-center">
-        				<!-- <h1>${ms}</h1>  -->
+        				<h1>${ms}</h1>
         				meetings<br>
+        				during the day
         			</div>
         		</div>
         	</div>
