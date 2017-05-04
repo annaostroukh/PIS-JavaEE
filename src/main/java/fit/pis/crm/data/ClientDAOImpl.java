@@ -104,8 +104,14 @@ public class ClientDAOImpl implements ClientDAO {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Client> criteria = cb.createQuery(Client.class);
 		Root<Client> client = criteria.from(Client.class);
-		criteria.select(client).where(cb.equal(client.get("managers"), null)).orderBy(cb.asc(client.get("name")));
+		criteria.select(client).where(cb.isEmpty(client.get("managers"))).orderBy(cb.asc(client.get("name")));
 		return em.createQuery(criteria).getResultList();
+	}
+	
+	@Override
+	public Integer calculateAllWithoutManager() {
+		int lc = findAllWithoutManager().size();
+		return lc;
 	}
 
 }

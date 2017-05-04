@@ -74,17 +74,30 @@ public class UserAccDAOImpl implements UserAccDAO{
 	}
 
 	@Override
-	public UserAcc findManagerWithMaxLoad() {
-		/*String manager = "ROLE_MANAGER";
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<UserAcc> criteria = cb.createQuery(UserAcc.class);
-		Root<UserAcc> userAccount = criteria.from(UserAcc.class);
-		criteria.multiselect(cb.max(cb.count(userAccount.get("meetings")))).orderBy(cb.asc(userAccount.get("username")));
-		criteria.select(userAccount).where(cb.max(cb.count(userAccount.get("meetings"))));
-		return em.createQuery(criteria).getResultList();*/
+	public UserAcc findManagerWithMaxLoad(String role) {
+//		String manager = role;
+//		CriteriaBuilder cb = em.getCriteriaBuilder();
+//		CriteriaQuery<UserAcc> criteria = cb.createQuery(UserAcc.class);
+//		Root<UserAcc> userAccount = criteria.from(UserAcc.class);
+//		// criteria.multiselect(cb.max(cb.count(userAccount.get("meetings")))).orderBy(cb.asc(userAccount.get("username")));
+//		criteria.select(userAccount).where(cb.equal(userAccount.get("role"), manager))
+//			.where(cb.equal((cb.count(userAccount.get("meetings"))), cb.max(cb.count(userAccount.get("meetings")))));
+//		return em.createQuery(criteria).getSingleResult();
+		return null;
+	}
+	
+	@Override
+	public List<Number> findMaxManagerMeetings(){
+//		CriteriaBuilder cb = em.getCriteriaBuilder();
+//		CriteriaQuery<Number> criteria = cb.createQuery(Number.class);
+//		Root<UserAcc> userAccount = criteria.from(UserAcc.class);
+//		criteria.multiselect(cb.max(cb.count(userAccount.get("meetings"))));
+//		//criteria.select(cb.max(cb.count(userAccount.get("meetings"))));
+//		return em.createQuery(criteria).getResultList();
 		return null;
 	}
 
+	
 
 	@Override
 	public List<UserAcc> findManagersWeekMeetings(Date startDate, Date endDate) {

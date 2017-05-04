@@ -13,16 +13,16 @@
         		<div class="col-md-3">
         			<h4> Clients waiting for a manager: </h4>
         			<div class="jumbotron text-center">
-        				<h1>3</h1><br>
+        				<h1>${lc}</h1><br>
         				lonely clients
         			</div>
         		</div>
         		<div class="col-md-3">
         			<h4> Most busy manager: </h4>
         			<div class="jumbotron text-center">
-        				<h1>8</h1>
-        				meetings this week
-        				<b>Name Surname</b>
+        				
+        				meetings
+        				<b>${maxManager}</b>
         			</div>
         		</div>
         		<div class="col-md-3">
@@ -36,9 +36,8 @@
         		<div class="col-md-3">
         			<h4> Today: </h4>
         			<div class="jumbotron text-center">
-        				<h1>24</h1>
+        				<!-- <h1>${ms}</h1>  -->
         				meetings<br>
-        				by <b>14</b> managers
         			</div>
         		</div>
         	</div>
@@ -52,116 +51,34 @@
                                 <th>Status</th>
                                 <th>Phone</th>
                                 <th>Email</th>
-                                <th>Manager</th>
-                                <th>Save</th>
+                                <th>Edit</th>
 				            </tr>
 				        </thead>
 				        <tbody>
+				        	<c:if test="${empty clients}">
+				        		<td>Congratulations! All your clients have a manager!</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </c:if>
+				            <c:if test="${not empty clients}">
+				            <c:forEach var="client"  items="${clients}">
 				            <tr>
-				                <td>AAATiger</td>
-				                <td>new</td>
-				                <td>000000</td>
-				                <td>nixon@elite-motors.com</td>
+				                <td>${client.name} ${client.surname}</td>
+				                <td>${client.status}</td>
+				                <td>${client.phoneNumber}</td>
+				                <td>${client.email}</td>
 				                <td>
-				                	<select>
-				                		<option>User (8 clients)</option>
-				                		<option>User (8 clients)</option>
-				                		<option>User (8 clients)</option>
-				                	</select>
-				                </td>
-				                <td>
-				                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-floppy-disk"></span></a>
+				                	<a href="<c:url value="/supervisor/clients/edit/${client.id}" />" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-pencil"></span></a>
 				                </td>
 				            </tr>
-				            <tr>
-				                <td>AAATiger</td>
-				                <td>new</td>
-				                <td>000000</td>
-				                <td>nixon@elite-motors.com</td>
-				                <td>
-				                	<!-- system suggests less busy managers firstly, and doesn't show the ones who has more then 10 active clients -->
-				                	<select>
-				                		<option>User (8 clients)</option>
-				                		<option>User (8 clients)</option>
-				                		<option>User (8 clients)</option>
-				                	</select>
-				                </td>
-				                <td>
-				                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-floppy-disk"></span></a>
-				                </td>
-				            </tr>
-				            <tr>
-				                <td>AAATiger</td>
-				                <td>new</td>
-				                <td>000000</td>
-				                <td>nixon@elite-motors.com</td>
-				                <td>
-				                	<select>
-				                		<option>User (8 clients)</option>
-				                		<option>User (8 clients)</option>
-				                		<option>User (8 clients)</option>
-				                	</select>
-				                </td>
-				                <td>
-				                	<a href="admin-users-edit.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-floppy-disk"></span></a>
-				                </td>
-				            </tr>
+				            </c:forEach>
+				            </c:if>
 				        </tbody>
 				    </table>
 				</div>
-			</div>
-				
-			<div class="row">
-				<div class="col-sm-12">
-					<h4>Managers workload:</h4>
-		            <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-				        <thead>
-				            <tr>
-				                <th>Name</th>
-				                <th>Surname</th>
-				                <th>Email</th>
-				                <th>Meetings today</th>
-				                <th>Meetings this week</th>
-				                <th>Active clients</th>
-				            </tr>
-				        </thead>
-				        <tbody>
-				            <tr>
-				                <td>AAATiger</td>
-				                <td>Nixon</td>
-				                <td>nixon@elite-motors.com</td>
-				                <td>4</td>
-				                <td>8</td>
-				                <td>12</td>
-				            </tr>
-				            <tr>
-				                <td>AAATiger</td>
-				                <td>Nixon</td>
-				                <td>nixon@elite-motors.com</td>
-				                <td>4</td>
-				                <td>9</td>
-				                <td>10</td>
-				            </tr>
-				            <tr>
-				                <td>AAATiger</td>
-				                <td>Nixon</td>
-				                <td>nixon@elite-motors.com</td>
-				                <td>2</td>
-				                <td>8</td>
-				                <td>22</td>
-				            </tr>
-				            <tr>
-				                <td>BBAATiger</td>
-				                <td>KNixon</td>
-				                <td>nixon@elite-motors.com</td>
-				                <td>0</td>
-				                <td>8</td>
-				                <td>12</td>
-				            </tr>
-				        </tbody>
-				    </table>
-				</div>
-			</div>
+			</div>				
         </div>
     </div>
 
