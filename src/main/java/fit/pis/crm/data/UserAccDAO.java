@@ -14,7 +14,11 @@ public interface UserAccDAO {
     
     public List<UserAcc> findManagers();
     
-    public UserAcc findManagerWithMaxLoad();
+    public UserAcc findManagerWithMaxLoad(String role);
+        
+    public  Integer findMaxManagerMeetings();
+    
+    public  Integer findMinManagerMeetings();
     
     public UserAcc findManagerWithMinLoad();
     

@@ -15,7 +15,7 @@ public interface MeetingDAO {
 	
 	public List<Meeting> findBetweenDates(Date start, Date end);
 	
-	public List<Meeting> findToday(Date date);
+	public List<Meeting> findToday(Date today);
 
     public void register(Meeting meeting);
     

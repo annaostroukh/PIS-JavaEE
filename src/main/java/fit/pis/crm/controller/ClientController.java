@@ -1,5 +1,7 @@
 package fit.pis.crm.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -106,15 +108,37 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value = "dashboard", method = RequestMethod.GET)
-	public ModelAndView showDashboard() {
+	public ModelAndView showDashboard() throws ParseException {
  		ModelAndView mod = this.getModel();
  		mod.setViewName(dashboard);
  		//Managers with meetings today
  		Calendar cal = Calendar.getInstance();
- 		Date today = cal.getTime();
- 		List<Meeting> meetings = meetingDAO.findToday(today);
+ 		Date todayDat = normalize(cal);
+ 		List<Meeting> meetingsT = meetingDAO.findToday(todayDat);
+ 		Integer ms = meetingsT.size();
+ 		mod.addObject("ms", meetingDAO.findToday(todayDat).size());
+ 		//clients	
+ 		mod.addObject("clients", clientDAO.findAllWithoutManager());
+ 		mod.addObject("lc", clientDAO.calculateAllWithoutManager());
+ 		// all managers
+ 		mod.addObject("managers", getManagers());
+ 		// max manager
+ 		mod.addObject("mostBusyManager", userAccountDAO.findManagerWithMaxLoad("ROLE_MANAGER"));
+ 		mod.addObject("maxMeeting", userAccountDAO.findMaxManagerMeetings());
+ 		// min manager
+ 	 	mod.addObject("lessBusyManager", userAccountDAO.findManagerWithMinLoad());
+ 	 	mod.addObject("minMeeting", userAccountDAO.findMinManagerMeetings());
+ 		
  		return mod;
 	}
+	
+	private Date normalize(Calendar cal) {
+        cal.set(Calendar.MILLISECOND, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        return cal.getTime();
+    }
 	
 	@RequestMapping(value = "clients", method = RequestMethod.GET)
 	public ModelAndView showAllClients() {

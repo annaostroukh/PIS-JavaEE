@@ -18,6 +18,8 @@ public interface ClientDAO {
     
     public List<Client> findAllWithoutManager();
     
+    public Integer calculateAllWithoutManager();
+    
     public void register(Client client);
     
     public void deleteById(Long id);
