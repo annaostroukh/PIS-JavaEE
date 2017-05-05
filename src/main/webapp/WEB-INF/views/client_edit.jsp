@@ -10,50 +10,54 @@
             <h1>Edit client</h1>
             <!-- when 'edit' mode : -->
             <!--<h2>Edit client</h2> -->
-            <form:form class="form-add-client row" commandName="client" id="client_add" method="POST">
+            <form:form class="form-add-client row" commandName="client" id="client_add">
+            <form:hidden path="id"/>
                 <div class="col-md-4">
-                    <label> Name: </label>
+                    <label> Name*: </label>
                     <form:input path="name" type="text" id="name" name="name" class="form-control" placeholder="Name" />
-                    <label> Surname: </label>
+                    <form:errors class="error" path="name" />
+                    <label> Surname*: </label>
                         <form:input path="surname" type="text" id="surname" name="surname" class="form-control" placeholder="Surname" />
+                        <form:errors class="error" path="surname" />
                     <label> Birthday: </label>
                         <form:input path="birthday" type="text" name="birthdate" class="form-control" id="datepicker" />
                     <label> Manager: </label>
-                        <form:select path="managers" class="form-control" multiple="false">
+                        <form:select path="managers" class="form-control" multiple="false" id="managers" name="managers">
                             <form:option value="" label="- Select -"/>
-                            <form:options selected="true" items="${managers}"/>
+                            <form:options path="manager.id" items="${managers}"/>
                         </form:select>
                     <br>
-                    <form:hidden path="id"/>
                     <button class="btn btn-primary btn-block" type="submit">Save</button>
                 </div>
                 <div class="col-md-4">
-                    <label> Email: </label>
+                    <label> Email*: </label>
                         <form:input path="email" type="email" name="email" id="Email" class="form-control" placeholder="Email" />
-                    <label> Phone: </label>
+                        <form:errors class="error" path="email" />
+                    <label> Phone*: </label>
                     <form:input path="phoneNumber" type="text" name="phone" class="form-control" />
+                    <form:errors class="error" path="phoneNumber" />
                     <label> Status: </label>
                         <form:select path="status" class="form-control">
                             <form:option value="" label="- Select -"/>
-                            <form:options selected="true" items="${status}" />
+                            <form:options items="${status}" />
                         </form:select>
                 </div>
                 <div class="col-md-4">
                     <!-- if has a car selected -->
 	                 <label> Select brand </label>
-                        <form:select path="cars" class="form-control" multiple="false">
+                        <form:select path="cars" class="form-control" multiple="false" id="brands" name="brands">
                             <form:option value="" label="- Select -"/>
-                            <form:options selected="true" items="${cars}" itemValue="brand.id" itemLabel="brand.brandName" />
+                            <form:options items="${cars}" path="car.brand.id" itemValue="brand.id" itemLabel="brand.brandName" />
                         </form:select>
                     <label> Select model </label>
-                        <form:select path="cars" class="form-control" multiple="false">
+                        <form:select path="cars" class="form-control" multiple="false" id="models" name="models">
                             <form:option value="" label="- Select -"/>
-                            <form:options selected="true" items="${cars}" itemValue="model.id" itemLabel="model.modelName" />
+                            <form:options items="${cars}" path="car.model.id" itemValue="model.id" itemLabel="model.modelName" />
                         </form:select>
                     <label> Select year </label>
-                        <form:select path="cars" class="form-control" multiple="false">
+                        <form:select path="cars" class="form-control" multiple="false" id="year" name="year">
                             <form:option value="" label="- Select -"/>
-                            <form:options selected="true" items="${cars}" itemValue="id" itemLabel="year" />
+                            <form:options items="${cars}" path="car.year" itemValue="year" itemLabel="year" />
                         </form:select>    
                 </div>
             </form:form><!-- /form -->

@@ -57,8 +57,8 @@ public class Car implements Serializable {
 	@Column(name = "price")
 	private Double price;
 	
-	@ManyToMany(targetEntity=Client.class, fetch = FetchType.EAGER, mappedBy="cars", 
-			cascade=CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy="cars", 
+			cascade={CascadeType.REFRESH,CascadeType.MERGE})
 	private Set<Client> clients = new HashSet<Client>();
 	
 	public Set<Client> getClients() {

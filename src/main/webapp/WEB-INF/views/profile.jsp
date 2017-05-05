@@ -52,6 +52,7 @@
 					                        <form:select disabled="${true}" path="role" class="form-control" name="role">
 					                        	<form:option value="ROLE_MANAGER">Manager</form:option>
 					                        </form:select>
+					                        <form:hidden path="role"/>
 				                        </sec:authorize>
 				                         <sec:authorize access="hasRole('ROLE_ADMIN')">
 					                        <form:select path="role" class="form-control" name="role">
@@ -62,6 +63,7 @@
 					                        <form:select disabled="${true}" path="role" class="form-control" name="role">
 					                        	<form:option value="ROLE_SUPERVISOR">Supervisor</form:option>
 					                        </form:select>
+					                        <form:hidden path="role"/>
 				                        </sec:authorize>
 				                </div>
 				                <div class="col-md-4">
@@ -76,6 +78,7 @@
 				                </div>
 				            </div>
 			                <form:hidden path="phoneNumber"/>
+			               
 			                <input type="hidden" name="${_csrf.parameterName}"
 									value="${_csrf.token}" class="btn btn-theme" />
 			            </form:form>

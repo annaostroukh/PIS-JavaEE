@@ -110,6 +110,7 @@ public class MeetingController {
 		mod.setViewName(edit);
 		Meeting meeting = meetingDAO.findById(id);
 		mod.addObject("meeting", meeting);
+		mod.addObject("clients", getClients());
 		return mod;
 	}
 
@@ -143,7 +144,7 @@ public class MeetingController {
 	}
 	
 	@ModelAttribute("clients")
-	public Map<Long,String> registerModels() {
+	public Map<Long,String> registerClients() {
 	    return getClients();
 	}
 	

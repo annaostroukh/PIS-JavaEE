@@ -50,7 +50,18 @@ public class CarDAOImpl implements CarDAO{
 		CriteriaQuery<Car> criteria = cb.createQuery(Car.class);
 		Root<Car> car = criteria.from(Car.class);
 		criteria.select(car).orderBy(cb.asc(car.get("brand")));
+		criteria.distinct(true);
 		return em.createQuery(criteria).getResultList();
+	}
+
+	@Override
+	public Car findByParams(Long brandId, Long modelId, String year) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Car> criteria = cb.createQuery(Car.class);
+		Root car = criteria.from(Car.class);
+		criteria.select(car).where(cb.and(cb.equal(car.get("brand").get("id"), brandId)), 
+				cb.equal(car.get("model").get("id"), modelId), cb.equal(car.get("year"), year));
+		return em.createQuery(criteria).getSingleResult();
 	}
 
 }

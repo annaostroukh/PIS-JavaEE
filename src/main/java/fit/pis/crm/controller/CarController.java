@@ -145,13 +145,42 @@ public class CarController {
 	}
 	
 	@RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
-	public ModelAndView edit(@PathVariable Long id) {
+	public ModelAndView edit(@PathVariable Long id,
+			@Valid @ModelAttribute("newBrand") Brand brand, BindingResult resultBrand,
+			@Valid @ModelAttribute("newModel") CarModel model, BindingResult resultModel) {
 		Car car = carDAO.findById(id);
 		ModelAndView mod = this.getModel();
 		mod.setViewName(edit);
+		Car newCar = new Car();
+		Brand newBrand = new Brand();
+		CarModel newModel = new CarModel();
+		mod.addObject("newModel", newModel);
+		mod.addObject("newBrand", newBrand);
 		mod.addObject("models", getModels());
 		mod.addObject("brands", getBrands());
 		mod.addObject("car", car);
+		
+		if (!resultBrand.hasErrors()) {
+			try {
+				brandDAO.register(brand);
+				mod.setViewName("redirect:/admin/cars/edit/{id}");
+			} catch (UnexpectedRollbackException e) {
+				mod.addObject("error", e.getCause().getCause());
+				mod.setViewName("redirect:/admin/cars/edit/{id}");
+			}
+		} else if (!resultModel.hasErrors()) {
+			try {
+				carModelDAO.register(model);
+				mod.setViewName("redirect:/admin/cars/edit/{id}");
+			} catch (UnexpectedRollbackException e) {
+				mod.addObject("error", e.getCause().getCause());
+				mod.setViewName("redirect:/admin/cars/edit/{id}");
+			}
+		} else {
+			mod.setViewName(edit);
+			return mod;
+		}
+		
 		return mod;
 	}
 	

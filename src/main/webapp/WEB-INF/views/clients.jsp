@@ -62,9 +62,14 @@
 		                <td>
 		                	<c:out value="${client.phoneNumber}"/>
 		                </td>
-		                <td>
-		                	<c:out value="${fc:formatDate(client.birthday,'dd/MM/yyyy')}" />
-		                </td>
+		                <c:if test="${empty client.birthday}">
+		                	<td>-</td>
+		                </c:if>
+		                <c:if test="${not empty client.birthday}">
+		                	<td>
+		                		<c:out value="${fc:formatDate(client.birthday,'dd/MM/yyyy')}" />
+		                	</td>
+		                </c:if>
 		                <td>
 		                	<c:out value="${client.status}"/>
 		                </td>

@@ -1,30 +1,38 @@
 package fit.pis.crm.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.UnexpectedRollbackException;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fit.pis.crm.data.CarDAO;
 import fit.pis.crm.data.ClientDAO;
 import fit.pis.crm.data.MeetingDAO;
 import fit.pis.crm.data.UserAccDAO;
+import fit.pis.crm.model.Brand;
 import fit.pis.crm.model.Car;
 import fit.pis.crm.model.Client;
 import fit.pis.crm.model.Meeting;
@@ -74,6 +82,15 @@ public class ClientController {
 							+ " " + managers.get(i).getSurname());
 		}
 		return map_managers;
+	} 
+	
+	private Map<Long,Car> getCars() {
+		Map<Long,Car> map_cars = new LinkedHashMap<Long,Car>();
+		List<Car> cars = carDAO.findAllOrderedByBrand();
+		for (int i = 0; i < cars.size(); i++) {
+			map_cars.put(cars.get(i).getId(), cars.get(i));
+		}
+		return map_cars;
 	} 
 	
 	public UserAcc getCurrentUser() {
@@ -135,9 +152,26 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value = "clients/new", method = RequestMethod.POST)
-	public ModelAndView newClientPost(@Valid @ModelAttribute("client") Client client, BindingResult result) {
+	public ModelAndView newClientPost(@Valid @ModelAttribute("client") Client client, BindingResult result,
+			@RequestParam("cars") String car) {
 		ModelAndView mod = this.getModel();
-		if (!result.hasErrors()) {
+		
+		if (!(car == null) || !(car.isEmpty())) {
+			String[] cars = car.split(",");
+			if(cars.length == 3) {
+				Car clientCar = carDAO.findByParams(Long.parseLong(cars[0]),Long.parseLong(cars[1]), (String)cars[2]);
+				Set<Car> clientCars = new HashSet<Car>();
+				clientCars.add(clientCar);
+				client.setCars(clientCars);
+			}
+    		System.out.println(client.getCars());
+    		
+		}
+	
+		clientDAO.register(client);
+		mod.setViewName("redirect:/supervisor/clients");
+		return mod;
+		/*if (!result.hasErrors()) {
 			try {
 				clientDAO.register(client);
 				mod.setViewName("redirect:/supervisor/clients");
@@ -150,7 +184,7 @@ public class ClientController {
 			}
 		}
 		mod.setViewName(edit);
-		return mod;
+		return mod;*/
 	}
 	
 	@RequestMapping(value = "clients/edit/{id}", method = RequestMethod.GET)
@@ -166,22 +200,42 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "clients/edit/{id}", method = RequestMethod.POST)
-	public ModelAndView update(@Valid @ModelAttribute("client") Client client, BindingResult result) {
+	public ModelAndView update(@Valid @ModelAttribute("client") Client client, BindingResult result,
+			@RequestParam("cars") String car) {
 		ModelAndView mod = this.getModel();
-		if (!result.hasErrors()) {
+		
+		if (!(car == null) || !(car.isEmpty())) {
+			String[] cars = car.split(",");
+			if(cars.length == 3) {
+				Car clientCar = carDAO.findByParams(Long.parseLong(cars[0]),Long.parseLong(cars[1]), (String)cars[2]);
+				Set<Car> clientCars = new HashSet<Car>();
+				clientCars.add(clientCar);
+				client.setCars(clientCars);
+			}
+    		System.out.println(client.getCars());
+    		
+		}
+		
+		System.out.println(client.getManagers());
+		
+	
+		clientDAO.update(client);
+		mod.setViewName("redirect:/supervisor/clients");
+		return mod;
+		/*if (!result.hasErrors()) {
 			try {
-				clientDAO.update(client);
+				clientDAO.update(client);;
 				mod.setViewName("redirect:/supervisor/clients");
 				return mod;
-			} catch (UnexpectedRollbackException e) {
+			} catch (JpaSystemException e) {
+				e.printStackTrace();
 				mod.addObject("error", e.getCause().getCause());
 				mod.setViewName(edit);
 				return mod;
 			}
-		} else {
-			mod.setViewName(edit);
-			return mod;
 		}
+		mod.setViewName(edit);
+		return mod; */
 	}
 	
 	@RequestMapping(value = "clients/{id}", method = RequestMethod.GET)
@@ -190,5 +244,13 @@ public class ClientController {
 		clientDAO.deleteById(id);
 		mod.setViewName("redirect:/supervisor/clients");
 		return mod;
+	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder)
+	{
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	    dateFormat.setLenient(false);
+	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	}
 }

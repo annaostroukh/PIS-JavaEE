@@ -24,6 +24,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -36,7 +38,7 @@ public class Client implements Serializable{
     @Column(name = "client_id")
 	private Long id;
 	
-	@NotNull(message = "Client name cannot be empty")
+	@NotEmpty(message = "Client name cannot be empty")
     @Pattern(regexp = "[A-Za-z ]*", message = "must contain only letters and spaces")
 	@Column(name = "client_name")
 	private String name;
@@ -47,7 +49,8 @@ public class Client implements Serializable{
 	@Column(name = "surname")
 	private String surname;
 	
-	@NotNull(message = "Email address cannot be empty")
+	@NotEmpty(message = "Email address cannot be empty")
+	@Email
 	@Column(name = "email")
 	private String email;
 	
@@ -67,14 +70,13 @@ public class Client implements Serializable{
 			mappedBy = "client")
 	private List<Meeting> meetings = new ArrayList<>();
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="client_car",
 		      joinColumns=@JoinColumn(name="client_id", referencedColumnName="client_id"),
 		      inverseJoinColumns=@JoinColumn(name="car_id", referencedColumnName="car_id"))
 	private Set<Car> cars = new HashSet<Car>();
 
-	@ManyToMany(fetch = FetchType.EAGER, mappedBy="clients", 
-			cascade=CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy="clients")
 	private Set<UserAcc> managers = new HashSet<UserAcc>();
 
 

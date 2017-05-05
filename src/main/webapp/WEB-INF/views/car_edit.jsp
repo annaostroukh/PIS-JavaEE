@@ -21,7 +21,7 @@
                     <form:hidden path="id"/>
                     <form:hidden path="brand.brandName"/>
                         <label> Select brand* </label>
-                            <form:select path="brand.id" class="form-control" id="brand">
+                            <form:select path="brand.id" class="form-control" id="brand" name="brand" onchange="brandChange(this)">
                                 <form:options items="${brands}" />
                             </form:select>
                             <form:errors class="error" path="brand.id" />
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-md-4">
                         <label> Select model* </label>
-                            <form:select path="model.id" class="form-control" id="model">
+                            <form:select path="model.id" class="form-control" id="model" name="model" onchange="modelChange(this)">
                                 <form:options items="${models}" />
                             </form:select>
                             <form:errors class="error" path="model.id" />
@@ -64,7 +64,7 @@
             </form:form><!-- /form -->
         </div>
     </div>
-    
+				
      <div class="modal fade" id="brand-modal" tabindex="-1" role="dialog" aria-labelledby="brand">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -111,4 +111,5 @@
             </div>
         </div>
     </div>
+
 <jsp:include page="templates/footer.jsp"></jsp:include>

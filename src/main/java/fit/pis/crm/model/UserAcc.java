@@ -87,8 +87,7 @@ public class UserAcc implements Serializable {
 	        mappedBy = "manager")
 	private List<Meeting> meetings = new ArrayList<>();
 	
-	@ManyToMany(targetEntity=Client.class,fetch = FetchType.EAGER, cascade={CascadeType.PERSIST,
-		    CascadeType.REFRESH,CascadeType.MERGE})
+	@ManyToMany(fetch = FetchType.EAGER, cascade={CascadeType.REFRESH,CascadeType.MERGE})
 	@JoinTable(name = "client_manager",
 			  joinColumns=@JoinColumn(name="manager_id", referencedColumnName="user_id"),
 		      inverseJoinColumns=@JoinColumn(name="client_id", referencedColumnName="client_id"))

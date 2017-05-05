@@ -31,6 +31,14 @@
      });
      $("#datepickerT").datepicker('setDate', new Date());
    });
+   /*var brands = ${brands.models};
+   var models = ${models};
+   function brandsChange(brand) {
+       var selected = brand.options[brand.selectedIndex].value;
+   }
+   function modelChange(model) {
+       var selected = model.options[model.selectedIndex].value;
+   }*/
 </script>
 	
 </head>
